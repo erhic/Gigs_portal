@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import './App.css'
+import Navbar from './Components/Navbar'
+import { BrowserRouter } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <nav>Navigation</nav>
-      <h1 className='text-secondary'>ready to go</h1>
-      <footer>Footer</footer>
+      <Navbar />
+      <Outlet />
     </>
+
   )
 }
 
