@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { FiMapPin, FiSearch } from "react-icons/fi"
-
 const Banner = ({ query, handleSearchQuery }) => {
 
   return (
@@ -27,5 +26,4 @@ const Banner = ({ query, handleSearchQuery }) => {
     </div>
   )
 }
-
-export default Banner
+export default Banner;
