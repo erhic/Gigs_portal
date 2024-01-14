@@ -17,7 +17,7 @@ const Banner = ({ query, handleSearchQuery }) => {
             <FiSearch className='absolute mt-2.5 ml-2 text-gray' />
           </div>
           <div className='flex md:rounded-s-none rounded shadow-sm ring-1 ring-insert ring-gray focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary md:w-1/3 w-full'>
-            <input type="text" name='title' id="title" placeholder="Location" className='block flex-1 border-0 bg-transparent py-1.5 pl-8 text-gray placeholder:text-gray focus:right-0 sm:text-sm sm:leading-6' />
+            <input type="text" name='title' id="location" placeholder="Location" className='block flex-1 border-0 bg-transparent py-1.5 pl-8 text-gray placeholder:text-gray focus:right-0 sm:text-sm sm:leading-6' />
             <FiMapPin className='absolute mt-2.5 ml-2 text-gray' />
             <button type="submit" className='bg-secondary py-2 px-8 text-white md:rounded-s-none rounded'>Search</button>
           </div>
