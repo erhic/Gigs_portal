@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6"
+import Createjob from '../src/Components/Createjob'
 
 export default function Navbar() {
 
@@ -9,17 +10,21 @@ export default function Navbar() {
     setIsMenuView(!isMenuView)
   }
   const navItems = [
-    { path: "/", title: "Search" },
-    { path: "/job", title: "My Jobs" },
-    { path: "/salary", title: "Salary range" },
-    { path: "/post-job", title: "Post job" }]
+    { path: "/", title: "Home" },
+    { path: "/applyjob", title: "Apply Jobs" },
+    { path: "/myapplications", title: "My Application" },
+    { path: "/createjob", title: "Post job" },
+    { path: "/applicants", title: "Applications" }
+
+
+  ]
 
   return (
     <>
       <header className='max-w-screen-2x1 container mx-auto x1:px-24 px-4'>
-        <nav className='flex justify-between items-center py-6'>
+        <nav className='flex justify-between items-center py-6 bg-light'>
 
-          <a href="http://" className='flex items-center gap-2 text-2x1 text-primary'><span>Gigs Lime</span></a>
+          <p className='flex items-center gap-2 text-2x1 text-primary fw-bold fs-5'><span>Gigpark</span></p>
           {/* large devices view */}
 
           <ul className='hidden md:flex gap-12'>
@@ -27,13 +32,16 @@ export default function Navbar() {
               <li key={path} className='text-base text-primary'>
                 <NavLink to={path} className={({ isActive }) => isActive ? "active" : ""}>
                   {title}
+
                 </NavLink></li>
+
             ))}
           </ul>
 
           <div className='text-basse text-primary font-medium space-x-5 hidden lg:block'>
-            <Link to="/login" className='py-2 px-5 border rounded'>Login</Link>
-            <Link to="/register" className='py-2 px-5 border rounded bg-secondary  text-white'>Register</Link>
+            <Link to="/login" className='py-2 px-4 border rounded'>Login</Link>
+            <Link to="/register" className='py-2 px-4 border rounded bg-secondary  text-white'>Register</Link>
+
           </div>
 
 

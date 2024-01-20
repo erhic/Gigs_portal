@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Navbar from './Components/Navbar'
+import Navbar from '../Pages/Navbar'
 import { BrowserRouter } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 
