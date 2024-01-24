@@ -60,7 +60,7 @@ export default function Createjob() {
               <input type="number" className="form-control" />
             </div>
             <div className="mb-3 col-md-4">
-              <label for="employmenttype" className="form-label">Employment Type</label>
+              <label htmlFor="employmenttype" className="form-label">Employment Type</label>
               <select defaultValue="" className="form-select form-select-sm" >
                 <option value="Daily">Part Time</option>
                 <option value="Monthly">Full Time</option>

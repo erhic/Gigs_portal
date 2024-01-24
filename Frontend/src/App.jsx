@@ -15,15 +15,16 @@ export default function App() {
 
   return (
     <>
-      {/* <Home /> */}
-      {/* <Login /> */}
-      {/* <Register /> */}
-      {/* <Navbar /> */}
-      <MyApplication />
-      <Applicants />
-      <Createjob />
-      <ApplyJob />
-
+      <BrowserRouter>
+        <Home />
+        <Login />
+        <Register />
+        <Navbar />
+        <MyApplication />
+        <Applicants />
+        <Createjob />
+        <ApplyJob />
+      </BrowserRouter>
     </>
 
   )

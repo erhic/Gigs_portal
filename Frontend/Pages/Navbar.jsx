@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6"
-import Createjob from '../src/Components/Createjob'
+import Home from './Home'
+
 
 export default function Navbar() {
 
@@ -9,15 +10,7 @@ export default function Navbar() {
   const handleToggler = () => {
     setIsMenuView(!isMenuView)
   }
-  const navItems = [
-    { path: "/", title: "Home" },
-    // { path: "/applyjob", title: "Apply Jobs" },
-    { path: "/myapplications", title: "My Application" },
-    { path: "/createjob", title: "Post job" },
-    { path: "/applicants", title: "Applications" }
 
-
-  ]
 
   return (
     <>
@@ -28,14 +21,25 @@ export default function Navbar() {
           {/* large devices view */}
 
           <ul className='hidden md:flex gap-12'>
-            {navItems.map(({ path, title }) => (
-              <li key={path} className='text-base text-primary'>
-                <NavLink to={path} className={({ isActive }) => isActive ? "active" : ""}>
-                  {title}
 
-                </NavLink></li>
+            <li className='text-base text-primary'>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applyjob">Apply Jobs</NavLink>
+            </li>
+            <li>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/myapplications">My Applications</NavLink>
+            </li>
+            <li>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/createjobs">Create Jobs</NavLink>
+            </li>
+            <li>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
+            </li>
 
-            ))}
+
+
           </ul>
 
           <div className='text-basse text-primary font-medium space-x-5 hidden lg:block'>
@@ -56,13 +60,24 @@ export default function Navbar() {
         </nav>
 
         <div className={`px-4 bg-primary py-5  rounded-sm ${isMenuView ? "" : "hidden"}`}>
-          <ul className=''>
-            {navItems.map(({ path, title }) => (
-              <li key={path} className='text-base text-white first:text-white py-1'>
-                <NavLink to={path} className={({ isActive }) => isActive ? "active" : ""}>
-                  {title}
-                </NavLink></li>
-            ))}
+          <ul >
+            <li className='text-base text-primary'>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applyjob">Apply Jobs</NavLink>
+            </li>
+            <li>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/myapplications">My Applications</NavLink>
+            </li>
+            <li>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/createjobs">Create Jobs</NavLink>
+            </li>
+            <li>
+              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
+            </li>
+
+
 
             <li className='text-white py-1'><Link to="/login">Login</Link></li>
             <li className='text-white py-1'><Link to="/register">Register</Link></li>
