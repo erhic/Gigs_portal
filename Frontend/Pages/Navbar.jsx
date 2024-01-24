@@ -11,7 +11,7 @@ export default function Navbar() {
   }
   const navItems = [
     { path: "/", title: "Home" },
-    { path: "/applyjob", title: "Apply Jobs" },
+    // { path: "/applyjob", title: "Apply Jobs" },
     { path: "/myapplications", title: "My Application" },
     { path: "/createjob", title: "Post job" },
     { path: "/applicants", title: "Applications" }

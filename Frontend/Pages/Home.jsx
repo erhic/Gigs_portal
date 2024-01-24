@@ -101,8 +101,8 @@ const Home = () => {
 
       <div className="maindiv container row d-flex mx-auto ">
 
-        <div className=" col-md-3 col-sm-12 bg-light rounded m-1 text-success"> <Sidebar /></div>
-        <div className="col-md-6 col-sm-12 bg-light  m-1 rounded-sm">
+        {/* <div className=" col-md-3 col-sm-12 bg-light rounded m-1 text-success"> <Sidebar /></div> */}
+        <div className="col-md-8 col-sm-12 bg-light  m-1 rounded-sm">
           {
             isLoading ? (<p>Loading.....</p>) : results.length > 0 ? (<Jobs results={results} />) :
               <>

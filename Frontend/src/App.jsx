@@ -1,19 +1,32 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from '../Pages/Navbar'
-import { BrowserRouter } from 'react-router-dom'
-import { Outlet } from 'react-router-dom'
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
+import Createjob from "./Components/Createjob";
+import ApplyJob from "./Components/ApplyJob";
+import MyApplication from "./Components/MyApplication";
+import Login from "./../Pages/Login";
+import Register from "./../Pages/Register";
+import Applicants from "./Components/Applicants";
+import Home from "./../Pages/Home";
+// import Private from "./../Pages/Private";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+
 
   return (
     <>
-      <Navbar />
-      <Outlet />
+      {/* <Home /> */}
+      {/* <Login /> */}
+      {/* <Register /> */}
+      {/* <Navbar /> */}
+      <MyApplication />
+      <Applicants />
+      <Createjob />
+      <ApplyJob />
+
     </>
 
   )
 }
 
-export default App
+

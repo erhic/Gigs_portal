@@ -9,17 +9,17 @@ export default function Createjob() {
 
 
           <div className="row">
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" class="form-label">Company Name</label>
-              <input type="text" class="form-control" />
+            <div className="mb-3 col-md-4">
+              <label className="form-label">Company Name</label>
+              <input type="text" className="form-control" />
             </div>
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" class="form-label">Job Title</label>
-              <input type="text" class="form-control" />
+            <div className="mb-3 col-md-4">
+              <label className="form-label">Job Title</label>
+              <input type="text" className="form-control" />
             </div>
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" class="form-label">Company Logo Link</label>
-              <input type="text" class="form-control" />
+            <div className="mb-3 col-md-4">
+              <label className="form-label">Company Logo Link</label>
+              <input type="text" className="form-control" />
             </div>
           </div>
 
@@ -28,18 +28,18 @@ export default function Createjob() {
 
 
           <div className="row">
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" min={1} class="form-label">Minumum Salary</label>
-              <input type="Number" class="form-control" />
+            <div className="mb-3 col-md-4">
+              <label className="form-label">Minumum Salary</label>
+              <input type="number" className="form-control" />
             </div>
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" class="form-label">Maximum Salary</label>
-              <input type="Number" class="form-control" />
+            <div className="mb-3 col-md-4">
+              <label className="form-label">Maximum Salary</label>
+              <input type="number" className="form-control" />
             </div>
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" class="form-label">Salary Type</label>
-              <select class="form-select form-select-sm" aria-label="Small select example">
-                <option selected></option>
+            <div className="mb-3 col-md-4">
+              <label className="form-label">Salary Type</label>
+              <select className="form-select form-select-sm" >
+                <option defaultValue=""></option>
                 <option value="Daily">Daily</option>
                 <option value="Monthly">Monthly</option>
                 <option value="Weekly">Weekly</option>
@@ -50,19 +50,18 @@ export default function Createjob() {
 
 
           <div className="row">
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" min={1} class="form-label">Job Location</label>
-              <input type="Number" class="form-control" />
+            <div className="mb-3 col-md-4">
+              <label className="form-label">Job Location</label>
+              <input type="Number" className="form-control" />
             </div>
 
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" min={1} class="form-label">Experience Level</label>
-              <input type="Number" class="form-control" />
+            <div className="mb-3 col-md-4">
+              <label className="form-label">Experience Level</label>
+              <input type="number" className="form-control" />
             </div>
-            <div class="mb-3 col-md-4">
-              <label for="exampleInputEmail1" class="form-label">Employment Type</label>
-              <select class="form-select form-select-sm" aria-label="Small select example">
-                <option selected></option>
+            <div className="mb-3 col-md-4">
+              <label for="employmenttype" className="form-label">Employment Type</label>
+              <select defaultValue="" className="form-select form-select-sm" >
                 <option value="Daily">Part Time</option>
                 <option value="Monthly">Full Time</option>
                 <option value="Weekly">Internship</option>
@@ -74,27 +73,16 @@ export default function Createjob() {
 
 
 
-          <label > Job Description</label><div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" ></textarea>
+          <label > Job Description</label><div className="form-floating mb-3">
+            <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2" ></textarea>
 
           </div>
-          <button type="submit" class="btn btn-primary text-secondary">Submit</button>
+          <button type="submit" className="btn btn-primary text-secondary">Submit</button>
         </form>
 
       </div>
 
-      {/* "id": 1,
-    "": "Coca cola",
-    "jobTitle": "Software Engineer",
-    "companyLogo": "/images/Linear.png",
-    "minPrice": "20",
-    "maxPrice": "30",
-    "salaryType": "Yearly",
-    "jobLocation": "Tatu City",
-    "postingDate": "2023-11-03",
-    "experienceLevel": "Any experience",
-    "employmentType": "Full-time",
-    "description": "lorem ipsun lorel llorem ipsim lorem lorem lorem lorem" */}
+
     </>
   )
 }

@@ -1,9 +1,10 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-
+import { useState, useContext, useEffect } from "react"
+import { UserContext } from "../Pages/contexts/UserContexts";
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Login() {
 
+  const loggedData = useContext(UserContext);
   const [userDetailis, setUserDetails] = useState({
 
     email: "",
@@ -28,21 +29,38 @@ export default function Login() {
       headers: {
         'Content-Type': "application/json"
       }
-    }).then((response) => response.json())
-      .then((data) => {
+    })
+      .then((response) => {
 
-        if (data.token !== undefined)
-
-          setMessage({ type: "success", text: data.message })
-
-        setUserDetails({
-          email: "",
-          password: ""
-        })
-        setTimeout(() => { setMessage({ type: "invisible-msg", text: "some info" }) }, 5000)
+        if (response.status === 404) {
+          setMessage({ type: "error", text: "Username or Email Doesnt Exist" });
+        }
+        else if (response.status === 403) {
+          setMessage({ type: "error", text: "Incorrect Password" });
+        }
 
 
-      }).catch((err) => console.log(err))
+        setTimeout(() => {
+          setMessage({ type: "invisible-msg", text: "Dummy Msg" })
+        }, 5000)
+
+        return response.json();
+
+
+      }).then((data) => {
+
+
+
+        if (data.token !== undefined) {
+          localStorage.setItem("nutrify-user", JSON.stringify(data));
+
+          loggedData.setLoggedUser(data);
+
+          navigate("/track");
+        }
+
+      })
+      .catch((err) => console.log(err))
 
   }
 
