@@ -14,8 +14,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className='max-w-screen-2x1 container mx-auto x1:px-24 px-4'>
-        <nav className='flex justify-between items-center py-6 bg-light'>
+      <header className='max-w-screen-2x1 container-fluid mx-auto x1:px-24 px-4 bg-light'>
+        <nav className='flex justify-between items-center py-6 '>
 
           <p className='flex items-center gap-2 text-2x1 text-primary fw-bold fs-5'><span>Gigpark</span></p>
           {/* large devices view */}
@@ -25,9 +25,9 @@ export default function Navbar() {
             <li className='text-base text-primary'>
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applyjob">Apply Jobs</NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/myapplications">My Applications</NavLink>
             </li>
@@ -38,15 +38,15 @@ export default function Navbar() {
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
             </li>
 
+            <div className='text-base  font-medium space-x-5 '>
+              <Link to="/login" className='py-2 px-4 border rounded'>Login</Link>
+              <Link to="/register" className='py-2 px-4 border rounded bg-secondary  text-white'>Register</Link>
 
+            </div>
 
           </ul>
 
-          <div className='text-basse text-primary font-medium space-x-5 hidden lg:block'>
-            <Link to="/login" className='py-2 px-4 border rounded'>Login</Link>
-            <Link to="/register" className='py-2 px-4 border rounded bg-secondary  text-white'>Register</Link>
 
-          </div>
 
 
           <div className='md:hidden block'>
