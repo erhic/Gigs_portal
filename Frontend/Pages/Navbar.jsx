@@ -20,7 +20,7 @@ export default function Navbar() {
           <p className='flex items-center gap-2 text-2x1 text-primary fw-bold fs-5'><span>Gigpark</span></p>
           {/* large devices view */}
 
-          <ul className='hidden md:flex gap-12'>
+          <ul className='hidden md:flex gap-8'>
 
             <li className='text-base text-primary'>
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
