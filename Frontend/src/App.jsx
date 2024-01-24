@@ -20,7 +20,7 @@ export default function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route index element={<Home />} />
           <Route path='/applyjobs' element={<ApplyJob />} />
           <Route path='/myapplications' element={<MyApplication />} />
           <Route path='/createjobs' element={<Createjob />} />
