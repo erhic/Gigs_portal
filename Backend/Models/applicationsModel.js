@@ -33,5 +33,5 @@ const applicationSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const applicationModel = mongoose.model("accounts", applicationSchema);
+const applicationModel = mongoose.model("applications", applicationSchema);
 module.exports = applicationModel;
