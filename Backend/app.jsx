@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("./Models/userModels");
-// const foodModel = require("./Model/foodModel");
-// const trackingModel = require("./Model/trackingModel");
+const jobsModel = require('./Models/jobsModels')
 const verifyToken = require("./verifyToken");
 const cors = require("cors");
 
@@ -68,6 +67,22 @@ app.post("/login", async (req, res) => {
     res.status(500).send({ message: "server error" });
   }
 });
+
+
+//endpoint to post job
+app.post('/createjobs', async (req, res) => {
+
+  let jobData = ""
+  req.body = jobData
+  try {
+    let jobs = await jobsModel.create(jobData)
+    console.log(jobs)
+    res.status(201).send({ message: "job posted successfully" })
+  } catch (err) {
+    console.log(err)
+    res.send(500).send({ message: "failed to post job" })
+  }
+})
 
 // app.get("/foods", verifyToken, async (req, res) => {
 //   try {
