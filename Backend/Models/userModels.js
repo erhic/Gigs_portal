@@ -15,6 +15,9 @@ const userSchema = mongoose.Schema(
       required: true,
       minLength: [8, "Minimum length required is 8 characters"],
     },
+    cv: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

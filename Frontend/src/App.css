@@ -247,3 +247,14 @@ font-size: 0.9rem;
 .maindiv{
   margin-top: -35px;
 }
+
+.card-btn{
+  max-width: 90px;
+  display: flex;
+  float: inline-end;
+  margin-right: 90px;
+}
+/* 
+.card-head{
+  display: inline-flex
+} */

@@ -14,14 +14,18 @@ const Card = ({ data, onCardClick }) => {
   //   navigate('/applyjob', { data });
   // }
   return (<>
-    <Link to="/applyjob"  >
-      <div className='card-font' >
-        <div className=' col card d-flex '>
-          <p className='location px-4 text-gray'><span className='px-2' ><FiMapPin /></span>{data.jobLocation}</p>
-          <div className=" card-header fs-6 fw-bold bg-white"><img className="card-image" src={data.companyLogo}></img>{data.jobTitle}</div>
-          <div className="card-body  card-description">{data.description}</div>
+
+    <div className='card-font' >
+      <div className=' col card d-flex '>
+        <p className='location px-4 text-gray'><span className='px-2' ><FiMapPin /></span>{data.jobLocation}</p>
+        <div className=" card-header fs-6 fw-bold bg-white"><img className="card-image" src={data.companyLogo}></img>{data.jobTitle}</div>
+        <div className="card-body  card-description">{data.description}</div>
+        <div className="div">
+          <Link to="/applyjob"  ><div className='btn btn-sm btn-primary card-btn'>Apply</div></Link>
         </div>
-      </div></Link>
+
+      </div>
+    </div>
   </>
   )
 }
