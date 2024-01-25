@@ -12,11 +12,7 @@ const applicationSchema = mongoose.Schema(
       ref: "jobs",
       required: true,
     },
-    firstname: {
-      type: String,
-      required: true,
-    },
-    lastname: {
+    username: {
       type: String,
       required: true,
     },
@@ -29,11 +25,7 @@ const applicationSchema = mongoose.Schema(
       type: String,
       required: false,
     },
-    sociallink: {
-      type: String,
-      required: false,
-    },
-    eatDate: {
+    applicationDate: {
       type: String,
       default: new Date().toLocaleDateString(),
     },
