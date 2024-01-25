@@ -2,6 +2,9 @@
 
 body{
   font-family: 'DM Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .active{
@@ -15,7 +18,7 @@ a {
 }
 
 li {
-  list-style: none;
+  list-style: none!important;
 }
 
 .btns {
@@ -37,7 +40,14 @@ li {
   padding: 20px;
   cursor: pointer;
 }
-
+.card-header{
+  display:flex;
+  flex-direction: row;
+}
+.card-image{
+  max-width: 50px;
+  padding-right: 5%;
+}
 
 .card-title {
   margin-bottom: 1rem;
@@ -66,7 +76,10 @@ li {
 .bag-icon {
   color: #535353;
 }
-
+p.location{
+  display: flex;
+  flex-direction: row;
+}
 .sidebar-title {
   font-size: 22px;
   font-weight: normal;
@@ -141,11 +154,96 @@ li {
   border-color: #f7f7f7;
 }
 
-
-/* .create-job-flex{
+/* 
+.create-job-flex{
   @apply flex flex-col lg:flex-row items-center justify-between gap-8;
 }
 
 .create-job-input{
-  @apply block w-full flex-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6
-} */
+  @apply block w-full flex-1 bg-white py-1.5 pl-3 focus:outline-none sm:text-sm sm:leading-6
+}  */
+.form-container{
+  background-color: rgb(255, 255, 255);
+display: flex;
+justify-content: center;
+min-height: 80vh;
+align-items: center;
+}
+.form-body{
+  background: #C9D6FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #909090, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  padding: 40px;
+  padding-top: 70px;
+ display: flex;
+ flex-direction: column;
+  row-gap:10px;
+  border-radius: 10px;
+  align-items: center;
+  margin-top: -90px;
+}
+
+.form-body:hover{
+  cursor: pointer;
+}
+.form-input{
+  border-radius: 6px;
+  outline:none;
+  text-indent: 20px;
+  border:1px solid rgb(230, 230, 230);
+  height: 40px;
+  width: 100%;color: rgb(115, 112, 112);
+
+}
+.form-button{
+  background-color: rgb(142, 90, 219);
+  color: whitesmoke;
+  border-radius: 10px;
+  width: 40%;
+  outline: none;
+  border: none;
+
+}
+
+.invisible-msg{
+  display: flex;
+  top:0;
+  position: absolute;
+  opacity: 0;
+}
+
+.success{
+  display: flex;
+  top:0;
+  position: absolute;
+  opacity: 1;
+  color: white;
+  padding:10px;
+  background-color: rgb(100, 210, 100);
+}
+
+.err{
+  opacity: 1;
+  display: flex;
+  top:0;
+  position: absolute;
+  opacity: 0;
+  color: white;
+  padding:10px;
+  background-color: rgb(200, 40, 133);
+
+}
+
+.card-font{
+  font-size: 0.8rem;
+}
+.card-description{
+  font-size:0.9rem;
+font-size: 0.9rem;
+;
+}
+
+.maindiv{
+  margin-top: -35px;
+}
