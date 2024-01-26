@@ -31,7 +31,7 @@ app.post("/register", (req, res) => {
           user.password = hpass;
           try {
             let usr = await userModel.create(user);
-            res.send({ message: "User registered" });
+            res.send({ message: "User registered sucessfully" });
           } catch {
             (err) => {
               console.log(err);
@@ -127,6 +127,18 @@ app.post("/applyjob", async (req, res) => {
 //     res.send({ messsage: "Failed to find item" });
 //   }
 // });
+app.get("/jobs/:jobid", (req, res) => {
+  applicationsModel
+    .find({ jobId: req.params.jobid })
+    .then((job) => {
+      res.send(job);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send({ message: "failed to  find job" });
+    });
+});
+app.get("/", () => {});
 
 // app.post("/tracking", verifyToken, async (req, res) => {
 //   let trackData = req.body;
