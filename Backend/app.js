@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("./Models/userModels");
-const jobsModel = require('./Models/jobsModels')
+const jobsModel = require("./Models/jobsModels");
+const appllcationsModel = require("./Models/applicationsModel");
 const verifyToken = require("./verifyToken");
 const cors = require("cors");
 
@@ -68,24 +69,32 @@ app.post("/login", async (req, res) => {
   }
 });
 
-
 //endpoint to post job
-app.post('/createjobs', async (req, res) => {
-
-  let jobData = ""
-  req.body = jobData
+app.post("/createjobs", async (req, res) => {
+  let jobData = req.body;
   try {
-    let jobs = await jobsModel.create(jobData)
-    console.log(jobs)
-    res.status(201).send({ message: "job posted successfully" })
+    let jobs = await jobsModel.create(jobData);
+    console.log(jobs);
+    res.status(201).send({ message: "job posted successfully" });
   } catch (err) {
-    console.log(err)
-    res.send(500).send({ message: "failed to post job" })
+    console.log(err);
+    res.send(500).send({ message: "failed to post job" });
   }
-})
+});
 
+app.get("/alljobs", async (req, res) => {
+  try {
+    let alljobs = await jobsModel.find();
+    res.status(200).send(alljobs);
+  } catch (err) {
+    res.status(500).send({ message: "failed to get jobs" });
+    console.log(err);
+  }
+});
 
-
+app.post("/applyjob", (req, res) => {
+  let applyData = req.body;
+});
 // app.get("/foods", verifyToken, async (req, res) => {
 //   try {
 //     let foods = await foodModel.find();

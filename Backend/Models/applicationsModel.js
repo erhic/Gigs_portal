@@ -12,22 +12,12 @@ const applicationSchema = mongoose.Schema(
       ref: "jobs",
       required: true,
     },
-    username: {
-      type: String,
-      required: true,
-    },
-    phoneno: {
-      type: Number,
-      required: true,
-      maxLength: [15, "Minimum length required is 15 characters"],
-    },
-    cvlink: {
-      type: String,
-      required: false,
-    },
     applicationDate: {
       type: String,
       default: new Date().toLocaleDateString(),
+    },
+    applicationStatus: {
+      type: String,
     },
   },
   { timestamps: true }
