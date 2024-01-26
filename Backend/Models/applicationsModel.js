@@ -12,12 +12,12 @@ const applicationSchema = mongoose.Schema(
       ref: "jobs",
       required: true,
     },
+    applicationStatus: {
+      type: String,
+    },
     applicationDate: {
       type: String,
       default: new Date().toLocaleDateString(),
-    },
-    applicationStatus: {
-      type: String,
     },
   },
   { timestamps: true }

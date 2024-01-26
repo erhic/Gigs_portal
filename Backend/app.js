@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("./Models/userModels");
 const jobsModel = require("./Models/jobsModels");
-const appllcationsModel = require("./Models/applicationsModel");
+const applicationsModel = require("./Models/applicationsModel");
 const verifyToken = require("./verifyToken");
 const cors = require("cors");
 
@@ -92,9 +92,17 @@ app.get("/alljobs", async (req, res) => {
   }
 });
 
-app.post("/applyjob", (req, res) => {
+app.post("/applyjob", async (req, res) => {
   let applyData = req.body;
+  try {
+    let application = await applicationsModel.create(applyData);
+    res.status(201).send({ message: "job applied successfully" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("job application failed");
+  }
 });
+
 // app.get("/foods", verifyToken, async (req, res) => {
 //   try {
 //     let foods = await foodModel.find();
