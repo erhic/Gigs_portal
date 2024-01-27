@@ -1,10 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+
 
 export default function MyApplication() {
-
+  const [jobAplied, setJobApplied] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3500/appliedjobs').then((res) => res.json()).then((data) => { console.log(data) }).catch((err) => { console.log(err) })
+    fetch('http://localhost:3501/appliedjobs')
+      .then((res) => res.json())
+      .then((applied_jobs) => {
+        setJobApplied(applied_jobs)
+        console.log(applied_jobs)
+        console.log(jobAplied)
+      })
+      .catch((err) => { console.log(err) })
   }, [])
   return (
 
@@ -28,14 +36,27 @@ export default function MyApplication() {
             </tr>
           </thead>
           <tbody>
-            <tr >
-              <th scope="row">1</th>
-              <td>{ }</td>
-              <td>{ }</td>
-              <td>{ }</td>
-              <td>{ }</td>
-              <td>{ }</td>
-            </tr>
+
+            {
+              jobAplied.map((item) => {
+                return (
+                  <tr key={item.id}>
+                    <td>#</td>
+                    <td>{(item.jobId._id).slice(-6)}</td>
+                    <td>{(item.jobId.jobTitle).toLowerCase().charAt(0).toUpperCase() + item.jobId.jobTitle.slice(1)}</td>
+                    <td>{item.jobId.companyName}</td>
+                    <td>{item.applicationDate}</td>
+                    <td>{item.jobId.companyName}</td>
+                    <td>{item.applicationStatus}</td>
+
+
+                  </tr>
+
+                )
+              })
+
+            }
+
           </tbody>
         </table>
 

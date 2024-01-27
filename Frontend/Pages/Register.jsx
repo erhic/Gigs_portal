@@ -28,7 +28,7 @@ export default function Register() {
     event.preventDefault()
     console.log(userDetailis)
     //fetch api
-    fetch("http://localhost:3500/register", {
+    fetch("http://localhost:3501/register", {
       method: "POST",
       body: JSON.stringify(userDetailis),
       headers: {

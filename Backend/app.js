@@ -140,7 +140,10 @@ app.get("/jobs/:jobid/:userid/", (req, res) => {
 });
 app.get("/appliedjobs", async (req, res) => {
   try {
-    let appliedJobs = await applicationsModel.find();
+    let appliedJobs = await applicationsModel
+      .find()
+      .populate("userId")
+      .populate("jobId");
     res.send(appliedJobs);
   } catch (err) {
     console.log(err);
@@ -176,6 +179,6 @@ app.get("/appliedjobs", async (req, res) => {
 //   }
 // });
 
-app.listen(3500, () => {
+app.listen(3501, () => {
   console.log("Serve running");
 });
