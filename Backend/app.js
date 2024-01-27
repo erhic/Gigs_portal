@@ -82,6 +82,7 @@ app.post("/createjobs", async (req, res) => {
   }
 });
 
+//endpoint to get all jobs
 app.get("/alljobs", async (req, res) => {
   try {
     let alljobs = await jobsModel.find();
@@ -92,6 +93,7 @@ app.get("/alljobs", async (req, res) => {
   }
 });
 
+//endpoint to apply for jobs
 app.post("/applyjob", async (req, res) => {
   let applyData = req.body;
   try {
@@ -103,30 +105,6 @@ app.post("/applyjob", async (req, res) => {
   }
 });
 
-// app.get("/foods", verifyToken, async (req, res) => {
-//   try {
-//     let foods = await foodModel.find();
-//     res.send(foods);
-//   } catch (err) {
-//     console.log(err);
-//     res.send({ message: "Problem fetching data" });
-//   }
-// });
-
-// app.get("/foods/:name", verifyToken, async (req, res) => {
-//   try {
-//     let foods = await foodModel.find({
-//       name: { $regex: req.params.name, $options: "i" },
-//     });
-//     if (foods.length !== 0) {
-//       res.send(foods);
-//     } else {
-//       res.status(404).send({ message: "food item not found" });
-//     }
-//   } catch (err) {
-//     res.send({ messsage: "Failed to find item" });
-//   }
-// });
 app.get("/jobs/:jobid/:userid/", (req, res) => {
   applicationsModel
     .find({ jobId: req.params.jobid, userId: req.params.userid })
@@ -138,6 +116,8 @@ app.get("/jobs/:jobid/:userid/", (req, res) => {
       res.send({ message: "failed to  find job" });
     });
 });
+
+//endpoint to see applied jobs by recruiter
 app.get("/appliedjobs", async (req, res) => {
   try {
     let appliedJobs = await applicationsModel
@@ -151,33 +131,7 @@ app.get("/appliedjobs", async (req, res) => {
   }
 });
 
-// app.post("/tracking", verifyToken, async (req, res) => {
-//   let trackData = req.body;
-//   try {
-//     let data = await trackingModel.create(trackData);
-//     console.log(data);
-//     res.status(201).send({ message: "Data added successfuly" });
-//   } catch (err) {
-//     res.status(500).send({ message: "failed to add data" });
-//   }
-// });
-
-// app.get("/track/:userid/:datess", verifyToken, async (req, res) => {
-//   let userid = req.params.userid;
-//   let dates = new Date(req.params.datess);
-//   let strDate =
-//     dates.getDate() + "/" + (dates.getMonth() + 1) + "/" + dates.getFullYear();
-//   console.log(strDate, dates);
-//   try {
-//     let usedfoods = await trackingModel
-//       .find({ userId: userid, eatDate: strDate })
-//       .populate("userId")
-//       .populate("foodId");
-//     res.status(200).send(usedfoods);
-//   } catch (err) {
-//     res.status(500).send({ message: "failed to fetch food" });
-//   }
-// });
+//endpoint to give response to applicant by recruiter/ whether will proceed to next stage
 
 app.listen(3501, () => {
   console.log("Serve running");

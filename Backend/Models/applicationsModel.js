@@ -14,6 +14,7 @@ const applicationSchema = mongoose.Schema(
     },
     applicationStatus: {
       type: String,
+      default: "pending",
     },
     applicationDate: {
       type: String,
