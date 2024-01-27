@@ -127,9 +127,9 @@ app.post("/applyjob", async (req, res) => {
 //     res.send({ messsage: "Failed to find item" });
 //   }
 // });
-app.get("/jobs/:jobid", (req, res) => {
+app.get("/jobs/:jobid/:userid/", (req, res) => {
   applicationsModel
-    .find({ jobId: req.params.jobid })
+    .find({ jobId: req.params.jobid, userId: req.params.userid })
     .then((job) => {
       res.send(job);
     })
@@ -138,7 +138,15 @@ app.get("/jobs/:jobid", (req, res) => {
       res.send({ message: "failed to  find job" });
     });
 });
-app.get("/", () => {});
+app.get("/appliedjobs", async (req, res) => {
+  try {
+    let appliedJobs = await applicationsModel.find();
+    res.send(appliedJobs);
+  } catch (err) {
+    console.log(err);
+    res.send({ message: "failed to find jobs" });
+  }
+});
 
 // app.post("/tracking", verifyToken, async (req, res) => {
 //   let trackData = req.body;

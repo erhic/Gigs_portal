@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function MyApplication() {
+
+
+  useEffect(() => {
+    fetch('http://localhost:3500/appliedjobs').then((res) => res.json()).then((data) => { console.log(data) }).catch((err) => { console.log(err) })
+  }, [])
   return (
 
 
@@ -23,31 +28,14 @@ export default function MyApplication() {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr >
               <th scope="row">1</th>
-              <td>#5622728</td>
-              <td>IT Support</td>
-              <td>Coca Cola</td>
-              <td>12/11/2022</td>
-              <td>Pending</td>
+              <td>{ }</td>
+              <td>{ }</td>
+              <td>{ }</td>
+              <td>{ }</td>
+              <td>{ }</td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>IT Support</td>
-              <td>01/12/2024</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>IT Support</td>
-              <td>12/12/2023</td>
-              <td>@mdo</td>
-            </tr>
-
           </tbody>
         </table>
 
