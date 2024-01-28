@@ -17,6 +17,7 @@ const userSchema = mongoose.Schema(
     },
     cvLink: {
       type: String,
+      default: " ",
     },
   },
   { timestamps: true }

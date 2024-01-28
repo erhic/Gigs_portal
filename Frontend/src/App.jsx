@@ -9,6 +9,7 @@ import Register from "./../Pages/Register";
 import Applicants from "./Components/Applicants";
 import Home from "./../Pages/Home";
 import Private from "./../Pages/Private";
+import ApplicantDetails from './Components/ApplicantDetails';
 
 export default function App() {
 
@@ -27,7 +28,7 @@ export default function App() {
           <Route path='/applicants' element={<Applicants />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-
+          <Route path="/applicantdetails" element={<ApplicantDetails />} />
         </Routes>
       </BrowserRouter>
     </>

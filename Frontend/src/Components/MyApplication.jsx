@@ -38,8 +38,12 @@ export default function MyApplication() {
           <tbody>
 
             {
+
+
               jobAplied.map((item) => {
+
                 return (
+
                   <tr key={item.id}>
                     <td>#</td>
                     <td>{(item.jobId._id).slice(-6)}</td>
@@ -48,9 +52,8 @@ export default function MyApplication() {
                     <td>{item.applicationDate}</td>
                     <td>{item.jobId.companyName}</td>
                     <td>{item.applicationStatus}</td>
-
-
                   </tr>
+
 
                 )
               })
