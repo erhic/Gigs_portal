@@ -132,6 +132,18 @@ app.get("/appliedjobs", async (req, res) => {
 });
 
 //endpoint to give response to applicant by recruiter/ whether will proceed to next stage
+app.put("/appliedjobs/:id", (req, res) => {
+  let applicantStatus = req.body;
+  applicationsModel
+    .updateOne({ _id: req.params.id }, applicantStatus)
+    .then((data) => {
+      console.log("updated status");
+      res.status(201).send({ message: "Status updated successfully" });
+    })
+    .catch((err) => {
+      res.status(500).send({ message: "Failed to update status" });
+    });
+});
 
 app.listen(3501, () => {
   console.log("Serve running");
