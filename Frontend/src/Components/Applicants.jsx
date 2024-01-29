@@ -1,12 +1,13 @@
 import React, { useEffect, useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import ApplicantDetails from './ApplicantDetails';
 // Create a new context and export
-export const applicantContext = createContext();
+export const ApplicantContext = createContext();
 export default function Applicants() {
 
   const [applicant, setApplicant] = useState([])
-  const [applicationId, setApplicationId] = useState('')
-  const [applicantSharedId, setApplicantSharedId] = useState({ sharedApplicant: applicationId })
+  const [applicationId, setApplicationId] = useState('tom')
+
   const navigate = useNavigate();
 
   const navigateToApplicantDeatils = () => {
@@ -89,15 +90,15 @@ export default function Applicants() {
           </tbody>
         </table>
       </div>
+      <div>
+        <ApplicantContext.Provider value={applicationId}>
+          <ApplicantDetails applicant={applicationId} />
+        </ApplicantContext.Provider>
+
+      </div>
+
     </>
+
   )
 
 }
-export const ApplicantProvider = ({ children }) => {
-  return (
-    <applicantContext.Provider value={sharedApplicant}>
-      {children}
-    </applicantContext.Provider>
-  )
-}
-export const useApplicant = () => useContext(applicantContext)

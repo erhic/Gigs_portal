@@ -1,11 +1,13 @@
 import React from 'react'
-import { useApplicant } from './Applicants'
+import { ApplicantContext } from './Applicants'
+import { useContext } from 'react'
 
 export default function ApplicantDetails() {
-  const useApplicantId = useApplicant()
-  console.log(useApplicantId + '..................')
+  const applicant = useContext(ApplicantContext)
+  console.log(applicant + '..................')
   return (
     <>
+      <h1></h1>
       <div className='container p-4'>
         <div className="row p-2 bg-light rounded-3">
           <div className="col col-md-3 p-2 mx-auto">
