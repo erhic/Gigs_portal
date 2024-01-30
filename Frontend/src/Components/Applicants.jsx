@@ -1,18 +1,13 @@
 import React, { useEffect, useState, createContext, useContext } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ApplicantDetails from './ApplicantDetails';
+
 // Create a new context and export
-export const ApplicantContext = createContext();
 export default function Applicants() {
 
   const [applicant, setApplicant] = useState([])
-  const [applicationId, setApplicationId] = useState('tom')
-
-  const navigate = useNavigate();
-
-  const navigateToApplicantDeatils = () => {
-    navigate('/applicantdetails');
-  };
+  const [applicationId, setApplicationId] = useState()
+  const [user, SetUser] = useState(applicant)
 
 
   useEffect(() => {
@@ -24,29 +19,6 @@ export default function Applicants() {
       })
       .catch(err => console.log(err))
   }, [])
-
-  useEffect(() => {
-    handleStatus()
-  }, [])
-  function handleStatus(itemId) {
-    console.log(itemId)
-    fetch(`http://localhost:3501/appliedjobs/${itemId}`,
-      {
-        method: "PUT",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ applicationStatus: "success" })
-      }
-
-    ).then(res => res.json()
-    )
-      .catch(err => console.log(err))
-    setApplicationId(itemId)
-
-  }
-  console.log(applicationId)
-
-
-
 
   return (
     <>
@@ -78,25 +50,19 @@ export default function Applicants() {
                     <td>{item.jobId.companyName}</td>
                     <td>{item.userId.username}</td>
                     <td>{item.userId.email}</td>
+
                     <td>
-                      <button className='btn btn-sm btn-primary ' data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        onClick={() => { handleStatus(item._id), navigateToApplicantDeatils() }}
-                      >View</button></td>
+                      <Link to={`/applicantdetails/${item._id}`} >
+                        <span className='btn btn-primary' >    View </span></Link> </td>
                     <td><span>{item.applicationStatus}</span></td>
                   </tr>
+
                 )
               })
             }
           </tbody>
         </table>
       </div>
-      <div>
-        <ApplicantContext.Provider value={applicationId}>
-          <ApplicantDetails applicant={applicationId} />
-        </ApplicantContext.Provider>
-
-      </div>
-
     </>
 
   )

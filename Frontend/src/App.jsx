@@ -1,6 +1,6 @@
 import './App.css'
 import Navbar from '../Pages/Navbar'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 import Createjob from "./Components/Createjob";
 import ApplyJob from "./Components/ApplyJob";
 import MyApplication from "./Components/MyApplication";
@@ -16,21 +16,11 @@ export default function App() {
 
   return (
     <>
+      <Navbar />
+      <Outlet />
 
 
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path='/applyjobs' element={<ApplyJob />} />
-          <Route path='/myapplications' element={<MyApplication />} />
-          <Route path='/createjobs' element={<Createjob />} />
-          <Route path='/applicants' element={<Applicants />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path="/applicantdetails" element={<ApplicantDetails />} />
-        </Routes>
-      </BrowserRouter>
+
     </>
 
   )
