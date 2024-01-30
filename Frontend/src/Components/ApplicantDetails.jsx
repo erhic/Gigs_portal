@@ -1,13 +1,19 @@
-import React from 'react'
-import { ApplicantContext } from './Applicants'
-import { useContext } from 'react'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 export default function ApplicantDetails() {
-  const applicant = useContext(ApplicantContext)
-  console.log(applicant + '..................')
+  const [userId, setUserId] = useState()
+  const id = useParams()
+
+  console.log(id)
+
+
+  useEffect(() => {
+
+  }, [])
   return (
     <>
-      <h1></h1>
+      <h1>..appllican</h1>
       <div className='container p-4'>
         <div className="row p-2 bg-light rounded-3">
           <div className="col col-md-3 p-2 mx-auto">
