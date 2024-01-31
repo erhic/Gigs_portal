@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         path: '/register', element: <Register />
       },
       {
-        path: '/applyjobs', element: <ApplyJob />
+        path: '/applyjob', element: <ApplyJob />
       },
       {
         path: '/myapplications', element: <MyApplication />
