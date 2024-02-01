@@ -11,13 +11,20 @@ import Home from "./../Pages/Home";
 import Private from "./../Pages/Private";
 import ApplicantDetails from './Components/ApplicantDetails';
 
-
+import { UserContext } from './context/UserContext';
+import { useEffect, useState } from 'react';
 
 export default function App() {
+  const [loggedUser, setLoggedUser] = useState(null)
+  useEffect(() => {
+    console.log(loggedUser)
+  })
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <UserContext.Provider value={{ loggedUser, setLoggedUser }} >
+        <Navbar />
+        <Outlet />
+      </UserContext.Provider>
     </>
 
   )
