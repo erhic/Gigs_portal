@@ -1,13 +1,14 @@
 import React, { useEffect, useState, createContext, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import ApplicantDetails from './ApplicantDetails';
+import { Link } from 'react-router-dom';
 
-// Create a new context and export
+
+
 export default function Applicants() {
 
   const [applicant, setApplicant] = useState([])
-  const [applicationId, setApplicationId] = useState()
-  const [user, SetUser] = useState(applicant)
+  //styles to apply dynamically
+  let successStyle = 'bg-success px-2 py-1 text-light rounded mx-3'
+  let failStyle = 'bg-danger px-2 py-1 text-light rounded mx-3'
 
 
   useEffect(() => {
@@ -33,9 +34,9 @@ export default function Applicants() {
               <th scope="col">Job Title</th>
               <th scope="col">Company</th>
               <th scope="col">Applicant Name</th>
-              <th scope="col">Applicant Contact</th>
-              <th scope="col">Date Applied</th>
+              <th scope="col">Applicant Email </th>
               <th scope="col">Action</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +55,7 @@ export default function Applicants() {
                     <td>
                       <Link to={`/applicantdetails/${item._id}`} >
                         <span className='btn btn-primary' >    View </span></Link> </td>
-                    <td><span>{item.applicationStatus}</span></td>
+                    <td><span className={item.applicationStatus === 'success' ? successStyle : failStyle}>{item.applicationStatus}</span></td>
                   </tr>
 
                 )

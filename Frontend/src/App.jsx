@@ -11,16 +11,13 @@ import Home from "./../Pages/Home";
 import Private from "./../Pages/Private";
 import ApplicantDetails from './Components/ApplicantDetails';
 
+
+
 export default function App() {
-
-
   return (
     <>
       <Navbar />
       <Outlet />
-
-
-
     </>
 
   )
