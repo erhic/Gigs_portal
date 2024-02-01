@@ -53,7 +53,12 @@ app.post("/login", async (req, res) => {
         if (result == true) {
           jwt.sign({ email: userCreditials.email }, "myapp", (err, token) => {
             if (!err) {
-              res.send({ message: "Login successful", token: token });
+              res.send({
+                message: "Login successful",
+                token: token,
+                userid: usr._id,
+                username: usr.username,
+              });
             }
           });
         } else {

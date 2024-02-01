@@ -220,18 +220,20 @@ align-items: center;
   opacity: 1;
   color: white;
   padding:10px;
+  margin-top: 80px;
   background-color: rgb(100, 210, 100);
 }
 
-.err{
-  opacity: 1;
+.error{
   display: flex;
+  margin-top: 80px;
   top:0;
   position: absolute;
-  opacity: 0;
+  opacity: 1;
   color: white;
   padding:10px;
-  background-color: rgb(200, 40, 133);
+  border-radius: 5x;
+  background-color: rgb(209, 34, 34);
 
 }
 

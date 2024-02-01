@@ -11,6 +11,7 @@ export default function Login() {
     password: "",
 
   })
+
   const [message, setMessage] = useState({
     type: "invisible-msg",
     text: "some text here"
@@ -48,9 +49,8 @@ export default function Login() {
           localStorage.setItem("app-user", JSON.stringify(data));
 
           loggedData.setLoggedUser(data);
-
           navigate("/myapplications");
-          Link
+          console.log(loggedData)
         }
 
       })

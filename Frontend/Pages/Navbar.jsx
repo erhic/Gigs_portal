@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { FaBarsStaggered, FaXmark } from "react-icons/fa6"
-import Home from './Home'
-
+import { FaBarsStaggered } from "react-icons/fa6"
+import { FaRegUserCircle } from "react-icons/fa";
+import { UserContext } from './contexts/UserContexts';
 
 export default function Navbar() {
-
+  // const loggedUser = useContext(UserContext)
   const [isMenuView, setIsMenuView] = useState(false)
+  const [isUserLogged, setIsUserLogged] = useState(false)
   const handleToggler = () => {
     setIsMenuView(!isMenuView)
   }
+
+  useEffect(() => {
+
+
+  })
 
 
   return (
@@ -38,12 +44,15 @@ export default function Navbar() {
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
             </li>
 
-            <div className='text-base  font-medium space-x-5 '>
-              <Link to="/login" className='py-2 px-4 border rounded'>Login</Link>
-              <Link to="/register" className='py-2 px-4 border rounded bg-secondary  text-white'>Register</Link>
+            {
 
-            </div>
+              isUserLogged !== false ? <div className='text-base  font-medium space-x-5'>
+                <Link to="/login" className='py-2 px-4 border rounded'>Login</Link>
+                <Link to="/register" className='py-2 px-4 border rounded bg-secondary  text-white'>Register</Link>
 
+              </div> :
+                <FaRegUserCircle />
+            }
           </ul>
 
 
