@@ -50,7 +50,7 @@ export default function Login() {
 
           loggedData.setLoggedUser(data);
 
-          // console.log(loggedData)
+          //if a login successful , will direct to home route('/')
         } navigate("/");
 
       })
