@@ -13,19 +13,12 @@ import ApplicantDetails from './Components/ApplicantDetails';
 import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from './context/UserContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function App() {
-  const navigate = useNavigate();
-  const [loggedUser, setLoggedUser] = useState(null)
-  useEffect(() => {
-    console.log(loggedUser)
-    if (localStorage.getItem("app-user") !== null) {
-      setLoggedUser(JSON.parse(localStorage.getItem("app-user")))
-    } else {
-      navigate("/login")
-    }
-  }, [])
+
+  const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem("app-user")))
+
   return (
     <>
       <UserContext.Provider value={{ loggedUser, setLoggedUser }} >

@@ -11,7 +11,7 @@ import MyApplication from './Components/MyApplication.jsx'
 import ApplicantDetails from './Components/ApplicantDetails.jsx'
 import Createjob from './Components/Createjob.jsx'
 import Applicants from './Components/Applicants.jsx'
-
+import Private from '../Pages/Private.jsx'
 
 
 const router = createBrowserRouter([
@@ -29,19 +29,19 @@ const router = createBrowserRouter([
         path: '/register', element: <Register />
       },
       {
-        path: '/applyjob', element: <ApplyJob />
+        path: '/applyjob', element: <Private Component={ApplyJob} />
       },
       {
-        path: '/myapplications', element: <MyApplication />
+        path: '/myapplications', element: < Private Component={MyApplication} />
       },
       {
-        path: '/applicantdetails/:id', element: <ApplicantDetails />
+        path: '/applicantdetails/:id', element: <Private Component={ApplicantDetails} />
       },
       {
-        path: '/createjobs', element: <Createjob />
+        path: '/createjobs', element: <Private Component={Createjob} />
       },
       {
-        path: '/applicants', element: <Applicants />
+        path: '/applicants', element: <Private Component={Applicants} />
       },
     ],
   }

@@ -49,9 +49,9 @@ export default function Login() {
           localStorage.setItem("app-user", JSON.stringify(data));
 
           loggedData.setLoggedUser(data);
-          navigate("/myapplications");
-          console.log(loggedData)
-        }
+
+          // console.log(loggedData)
+        } navigate("/");
 
       })
       .catch((err) => console.log(err))

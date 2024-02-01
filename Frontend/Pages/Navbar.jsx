@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FaBarsStaggered } from "react-icons/fa6"
 import { FaRegUserCircle } from "react-icons/fa";
-import { UserContext } from './contexts/UserContexts';
+import { UserContext } from '../src/context/UserContext'
 
 export default function Navbar() {
   // const loggedUser = useContext(UserContext)
