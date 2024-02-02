@@ -1,22 +1,26 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { FaBarsStaggered } from "react-icons/fa6"
 import { FaRegUserCircle } from "react-icons/fa";
 import { UserContext } from '../src/context/UserContext'
 
 export default function Navbar() {
-  // const loggedUser = useContext(UserContext)
   const [isMenuView, setIsMenuView] = useState(false)
-  const [isUserLogged, setIsUserLogged] = useState(false)
+  const [isUserLogged, setIsUserLogged] = useState()
   const handleToggler = () => {
     setIsMenuView(!isMenuView)
   }
+  // on press logout setup
 
-  useEffect(() => {
-
-
-  })
-
+  const loggedData = useContext(UserContext)
+  const navigate = useNavigate()
+  console.log(loggedData)
+  function logout() {
+    localStorage.removeItem('app-user')
+    loggedData.setLoggedUser(null)
+    navigate('/login')
+  }
+  console.log(loggedData)
 
   return (
     <>
@@ -31,27 +35,32 @@ export default function Navbar() {
             <li className='text-base text-primary'>
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
             </li>
-            {/* <li>
-              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applyjob">Apply Jobs</NavLink>
-            </li> */}
-            <li>
-              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/myapplications">My Applications</NavLink>
-            </li>
-            <li>
-              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/createjobs">Create Jobs</NavLink>
-            </li>
-            <li>
-              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
-            </li>
+            {
+              loggedData.loggedUser?.username ?
+                <div>
+                  <li>
+                    <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/createjobs">Create Jobs</NavLink>
+                  </li>
+                  <li>
+                    <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
+                  </li>
+                </div> : <li>
+                  <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/myapplications">My Applications</NavLink>
+                </li>
+
+
+            }
 
             {
 
-              isUserLogged !== false ? <div className='text-base  font-medium space-x-5'>
+              loggedData.loggedUser == null ? <div className='text-base  font-medium space-x-5'>
                 <Link to="/login" className='py-2 px-4 border rounded'>Login</Link>
                 <Link to="/register" className='py-2 px-4 border rounded bg-secondary  text-white'>Register</Link>
 
               </div> :
-                <FaRegUserCircle />
+                <div>
+                  <p className='fs-3'><FaRegUserCircle /></p>
+                  <Link className='fs-6 ' onClick={logout}>Logout</Link></div>
             }
           </ul>
 
