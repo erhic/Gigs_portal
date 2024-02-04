@@ -9,7 +9,7 @@ export default function MyApplication() {
     fetch('http://localhost:3501/appliedjobs')
       .then((res) => res.json())
       .then((applied_jobs) => {
-        setJobApplied(applied_jobs)
+        // setJobApplied(applied_jobs)
         console.log(applied_jobs)
         console.log(jobAplied)
       })
@@ -40,25 +40,27 @@ export default function MyApplication() {
 
             {
 
+              jobAplied.length !== 0 ?
+                jobAplied.filter((user) => user.userId._id === usersid).map((item) => {
 
-              jobAplied.filter((user) => user.userId._id === usersid).map((item) => {
+                  return (
 
-                return (
-
-                  <tr key={item.id}>
-                    <td>#</td>
-                    <td>{(item.jobId._id).slice(-6)}</td>
-                    <td>{(item.jobId.jobTitle).toLowerCase().charAt(0).toUpperCase() + item.jobId.jobTitle.slice(1)}</td>
-                    <td>{item.jobId.companyName}</td>
-                    <td>{item.applicationDate}</td>
-                    <td>{item.jobId.companyName}</td>
-                    <td>{item.applicationStatus}</td>
-                  </tr>
+                    <tr key={item.id}>
+                      <td>#</td>
+                      <td>{(item.jobId._id).slice(-6)}</td>
+                      <td>{(item.jobId.jobTitle).toLowerCase().charAt(0).toUpperCase() + item.jobId.jobTitle.slice(1)}</td>
+                      <td>{item.jobId.companyName}</td>
+                      <td>{item.applicationDate}</td>
+                      <td>{item.jobId.companyName}</td>
+                      <td>{item.applicationStatus}</td>
 
 
-                )
-              })
+                    </tr>
 
+                  )
+                })
+                :
+                <p className=' p-5 absolute text-center flex'>No job applied found</p>
             }
 
           </tbody>
