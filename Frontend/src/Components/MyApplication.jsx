@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
-
+import React, { useEffect, useState, useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
 export default function MyApplication() {
   const [jobAplied, setJobApplied] = useState([])
-
+  const user = useContext(UserContext)
+  let usersid = user.loggedUser.userid
   useEffect(() => {
     fetch('http://localhost:3501/appliedjobs')
       .then((res) => res.json())
@@ -40,7 +41,7 @@ export default function MyApplication() {
             {
 
 
-              jobAplied.map((item) => {
+              jobAplied.filter((user) => user.userId._id === usersid).map((item) => {
 
                 return (
 
