@@ -42,12 +42,17 @@ export default function ApplyJob() {
       <section className='row py-4'>
         {jobs.filter((jobids) => jobids._id === jobId).map((item, index) => {
           return (
-            <div key={index} className='col-md-6  px-5'>
-              <h3 className='text-center p-2'></h3>
-              <p>Job Desx</p>
-              <p> -{item._id}
-              </p><br />
-              <ul>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat amet, sint, quae rem corrupti delectus nam distinctio saepe dolor eligendi vitae commodi voluptates quasi impedit qui et! Dignissimos, veniam distinctio?</ul>
+            <div key={index} className='col-md-6 bg-light py-3 px-5'>
+              <h3> Job: <span className='fw-bold'>{item.jobTitle}</span>
+                <span className='float-right'> Posted on:<span className=' fw-bold'> {item.postDate}</span></span> </h3>
+              <p>  Company: <span className='fw-bold'>{item.companyName}</span>  <span className='float-right'>Deadline: <span className=' fw-bold'> In 14 Days</span></span> </p>
+              <p>  Location: <span className='fw-bold'>{item.jobLocation}</span></p>
+              <p className='py-3 fw-bold'>Job Description</p>
+              <p>{item.companyName} is recruiting for a position of {item.jobTitle} , candidate must have a minimum of {item.experienceType} experince to work at they offices located in {item.jobLocation}.  </p>
+              <p>* Qualified candidate are encouraged to apply .</p>
+              <ul className='fw-bold py-3'>Role of the job entails: </ul>
+              <p>- {item.jobDescription}</p>
+              <p className='py-3 mr-3'>Terms: <span className='fw-bold px-2 rounded-3 bg-gray-100 py-2 text-center'> {item.employmentType}</span></p>
             </div>
           )
         })
