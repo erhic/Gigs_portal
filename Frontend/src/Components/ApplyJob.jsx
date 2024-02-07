@@ -15,6 +15,14 @@ export default function ApplyJob() {
   const [jobSelect, setJobSelect] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
+  // application formm state
+  const [applicationInfo, setApplicationInfo] = useState({
+    firstname: '',
+    lastname: '',
+    phoneno: '',
+    cvlink: '',
+    sociallink: ''
+  })
 
 
   //fetching data
@@ -27,11 +35,28 @@ export default function ApplyJob() {
   console.log(allJobs)
   console.log(jobs)
 
-  let jobAll = jobs.filter((jb) => jb?._id === jobId)
+  function handleChange(event) {
+    setApplicationInfo((prevInfo) => {
+      return { ...prevInfo, [event.target.name]: event.target.value }
+    })
+
+  }
 
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(applicationInfo)
 
-
+    fetch("http://localhost:3501/register", {
+      method: "POST",
+      body: JSON.stringify(userDetailis),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(() => { })
+      .then(() => { })
+      .catch(() => { })
+  }
 
   return (<>
     <div className='container col-'>
@@ -40,6 +65,8 @@ export default function ApplyJob() {
       <h3 className='text-center'> ApplyJob/</h3>
 
       <section className='row py-4'>
+
+        {/* job being applied full details */}
         {jobs.filter((jobids) => jobids._id === jobId).map((item, index) => {
           return (
             <div key={index} className='col-md-6 bg-light py-3 px-5'>
@@ -57,34 +84,36 @@ export default function ApplyJob() {
           )
         })
         }
+
+        {/*  form to make application for specified job  */}
         <div className='col-md-5 mx-auto'>
-          <form className='p-2'>
+          <form onSubmit={handleSubmit} className='p-2'>
             <div className=" mt-4 row ">
               <div className="mb-3 col-md-5 ">
-                <label className="form-label">First Name</label>
-                <input type="email" required className="form-control" />
+                <label htmlFor='firstname' className="form-label">First Name</label>
+                <input type="text" name='firstname' required onChange={handleChange} className="form-control" />
 
               </div>
               <div className="mb-3 col-md-5 ">
                 <label className="form-label">Last Name</label>
-                <input type="email" required className="form-control" />
+                <input type="text" name='lastname' required onChange={handleChange} className="form-control" />
 
               </div>
             </div>
 
             <div className="mb-3">
               <label className="form-label">Phone Number</label>
-              <input type="password" required className="form-control" id="phonenumber" />
+              <input type="number" name='phoneno' required onChange={handleChange} className="form-control" id="phonenumber" />
             </div>
 
             <div className="mb-3">
               <label className="form-label">CV Link</label>
-              <input type="password" required className="form-control" id="cvlink" />
+              <input type="text" value={applicationInfo.cvlink} name='cvlink' required onChange={handleChange} className="form-control" id="cvlink" />
             </div>
 
             <div className="mb-3">
               <label className="form-label">Social Link</label>
-              <input type="password" required className="form-control" id="sociallink" />
+              <input type="text" name='sociallink' required onChange={handleChange} className="form-control" id="sociallink" />
             </div>
 
 
