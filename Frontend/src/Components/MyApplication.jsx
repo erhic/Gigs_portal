@@ -9,7 +9,7 @@ export default function MyApplication() {
     fetch('http://localhost:3501/appliedjobs')
       .then((res) => res.json())
       .then((applied_jobs) => {
-        // setJobApplied(applied_jobs)
+        setJobApplied(applied_jobs)
         console.log(applied_jobs)
         console.log(jobAplied)
       })

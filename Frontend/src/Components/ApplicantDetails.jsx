@@ -57,6 +57,7 @@ export default function ApplicantDetails({ children }) {
       .then(res => console.log(res))
       .catch(err => console.log(err))
   })
+  console.log(parId)
 
   return (
     <>

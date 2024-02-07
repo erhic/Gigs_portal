@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         path: '/register', element: <Register />
       },
       {
-        path: '/applyjob', element: <Private Component={ApplyJob} />
+        path: `/applyjob/:id`, element: <Private Component={ApplyJob} />
       },
       {
         path: '/myapplications', element: < Private Component={MyApplication} />

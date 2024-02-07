@@ -8,7 +8,7 @@ const client = require("twilio")(accountSid, authToken);
 
 client.messages
   .create({
-    body: "Thank you for make an job application?",
+    body: "Thank you for make an job application, we are pleased by your profile. Check your email for an interview invitation date within the next 24hrs.   ",
     from: "+14133495537",
     to: "",
   })
