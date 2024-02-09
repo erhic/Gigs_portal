@@ -16,6 +16,24 @@ const applicationSchema = mongoose.Schema(
       type: String,
       default: "pending",
     },
+    cvlink: {
+      type: String,
+      default: " ",
+    },
+    sociallink: {
+      type: String,
+      default: " ",
+    },
+    phoneno: {
+      type: Number,
+      minLength: [8, "Enter correct phone number"],
+    },
+    firstname: {
+      type: String,
+    },
+    lastname: {
+      type: String,
+    },
     applicationDate: {
       type: String,
       default: new Date().toLocaleDateString(),

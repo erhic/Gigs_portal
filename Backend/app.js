@@ -106,7 +106,7 @@ app.post("/applyjob", async (req, res) => {
     res.status(201).send({ message: "job applied successfully" });
   } catch (err) {
     console.log(err);
-    res.status(500).send("job application failed");
+    res.status(500).send({ message: "job application failed" });
   }
 });
 

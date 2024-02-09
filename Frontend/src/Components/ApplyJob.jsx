@@ -1,19 +1,21 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Jobs from './Jobs'
-import { JobContext } from '../context/UserContext'
+import { JobContext, UserContext } from '../context/UserContext'
 import { } from 'react'
 
 export default function ApplyJob() {
   const id = useParams()
-  const jobId = id.id
+  const jobIds = id.id
 
+  const loggedData = useContext(UserContext)
 
   const [jobs, setJobs] = useState([])
   const jobIdDes = useContext(JobContext)
   const allJobs = useMemo(() => jobIdDes)
   const [jobSelect, setJobSelect] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+
 
   // application formm state
   const [applicationInfo, setApplicationInfo] = useState({
@@ -46,16 +48,19 @@ export default function ApplyJob() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(applicationInfo)
-
-    fetch("http://localhost:3501/register", {
+    let loggedUserId = loggedData.loggedUser.userid
+    console.log(typeof (loggedUserId))
+    let allApplicationInfo = { ['jobId']: jobIds, ['userId']: loggedUserId, ...applicationInfo }
+    console.log(allApplicationInfo)
+    fetch("http://localhost:3501/applyjob", {
       method: "POST",
-      body: JSON.stringify(userDetailis),
+      body: JSON.stringify(allApplicationInfo),
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(() => { })
-      .then(() => { })
-      .catch(() => { })
+    }).then(res => res.json())
+      .then((data) => { console.log('application successful') })
+      .catch((err) => { console.log(err) })
   }
 
   return (<>
@@ -67,7 +72,7 @@ export default function ApplyJob() {
       <section className='row py-4'>
 
         {/* job being applied full details */}
-        {jobs.filter((jobids) => jobids._id === jobId).map((item, index) => {
+        {jobs.filter((jobids) => jobids._id === jobIds).map((item, index) => {
           return (
             <div key={index} className='col-md-6 bg-light py-3 px-5'>
               <h3> Job: <span className='fw-bold'>{item.jobTitle}</span>

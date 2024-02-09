@@ -41,11 +41,11 @@ export default function MyApplication() {
             {
 
               jobAplied.length !== 0 ?
-                jobAplied.filter((user) => user.userId._id === usersid).map((item) => {
+                jobAplied.filter((user) => user.userId._id === usersid).map((item, index) => {
 
                   return (
 
-                    <tr key={item.id}>
+                    <tr key={index}>
                       <td>#</td>
                       <td>{(item.jobId._id).slice(-6)}</td>
                       <td>{(item.jobId.jobTitle).toLowerCase().charAt(0).toUpperCase() + item.jobId.jobTitle.slice(1)}</td>
@@ -60,7 +60,7 @@ export default function MyApplication() {
                   )
                 })
                 :
-                <p className=' p-5 absolute text-center flex'>No job applied found</p>
+                <tr className=' p-5 absolute text-center flex'><td> No job applied found</td></tr>
             }
 
           </tbody>
