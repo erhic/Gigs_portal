@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from './Sidebar'
+import Sidebar from './sidebar/Sidebar'
 import Jobs from '../src/Components/Jobs'
 import Banner from '../src/Components/Banner'
 import Card from '../src/Components/Card'
@@ -97,12 +97,12 @@ const Home = () => {
   return (
     <>
       <Banner query={query} handleSearchQuery={handleSearchQuery} />
+      {/* 
+      m-2 grid xl:grid-cols-6 lg:grid-cols-5 gap-12 md:grid-cols-5 mx-3 */}
+      <div className=" md:grid grid-cols-5 gap-8 lg:px-12 px-7 py-3">
 
-
-      <div className="maindiv container row d-flex mx-auto ">
-
-        {/* <div className=" col-md-3 col-sm-12 bg-light rounded m-1 text-success"> <Sidebar /></div> */}
-        <div className="col-md-8 col-sm-12 bg-light  m-1 rounded-sm">
+        < Sidebar handleRadioSelection={handleRadioSelection} />
+        <div className="xl:col-span-4 lg:col-span-4 md:col-span-4 ">
           {
             isLoading ? (<p>Loading.....</p>) : results.length > 0 ? (<Jobs results={results} />) :
               <>
@@ -111,14 +111,14 @@ const Home = () => {
           }
           {
             results.length > 0 ?
-              (<div>
-                <button onClick={prevPage}>Previous</button>
-                <span>Page{currentPage} of {Math.ceil(filteredJobsByTitle.length / itemPerPage)}</span>
-                <button onClick={nextPage}>Next</button>
+              (<div className='flex justify-center mt-6'>
+                <button className='text-sm text-gray-700 px-3' onClick={prevPage}>Previous</button>
+                <span className='text-sm text-gray-400 px-1'>Page {currentPage} of {Math.ceil(filteredJobsByTitle.length / itemPerPage)}</span>
+                <button className='text-sm text-gray-700 px-3' onClick={nextPage}>Next</button>
               </div>) : ""
           }
         </div>
-        <div className="  col-md-2 col-sm-12 bg-light m-1 rounded"> RIGHT</div>
+        {/* <div className=" w-30  bg-slate-500"> RIGHT</div> */}
 
       </div>
     </>
