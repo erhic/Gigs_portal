@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function Jobs({ results }) {
   return (
-    <div>{results}</div>
+    <div className='flex justify-center' >
+      <div className='flex  flex-wrap m-auto'>{results}</div>
+    </div>
+
   )
 }

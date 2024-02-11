@@ -11,6 +11,7 @@ export default function Applicants() {
   let failStyle = 'bg-danger px-2 py-1 text-light rounded mx-3'
 
 
+
   useEffect(() => {
     fetch('http://localhost:3501/appliedjobs')
       .then(res => res.json())
@@ -49,13 +50,14 @@ export default function Applicants() {
                     <td>{'#' + (num++).toString().padEnd(4, '0')}</td>
                     <td>{item.jobId.jobTitle}</td>
                     <td>{item.jobId.companyName}</td>
-                    <td>{item.userId.username}</td>
+                    <td>{item.firstname}</td>
                     <td>{item.userId.email}</td>
 
                     <td>
                       <Link to={`/applicantdetails/${item._id}`} >
                         <span className='btn btn-primary' >    View </span></Link> </td>
                     <td><span className={item.applicationStatus === 'success' ? successStyle : failStyle}>{item.applicationStatus}</span></td>
+
                   </tr>
 
                 )

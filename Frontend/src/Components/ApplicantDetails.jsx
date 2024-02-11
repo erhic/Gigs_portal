@@ -71,7 +71,7 @@ export default function ApplicantDetails({ children }) {
               <div key="i" className="row p-2 bg-light rounded-3">
                 <div className="col col-md-4 p-1 mx-auto">
                   <p className='text-center fw-bold py-2'>Applicant Info</p>
-                  <p className='p-1'>Name : <span className='px-2'>{item.userId.username}</span></p>
+                  <p className='p-1'>Name : <span className='px-2'>{item.firstname}</span></p>
                   <p className='p-1'>Email: <span className='px-2'>{item.userId.email}</span></p>
                   <p className='p-1'>Tel no: <span className='px-2'>xxxxxxx</span></p>
                   <p className='p-1'>Status:

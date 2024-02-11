@@ -111,9 +111,9 @@ export default function Createjob() {
               <label htmlFor="employmenttype" className="form-label">Employment Type</label>
               <select required name='employmentType' onChange={handleChange} className="form-select form-select-sm" >
                 <option defaultValue=""></option>
-                <option value="Daily">Part Time</option>
-                <option value="Monthly">Full Time</option>
-                <option value="Weekly">Internship</option>
+                <option value="Parttime">Part Time</option>
+                <option value="Fulltime">Full Time</option>
+                <option value="Internship">Internship</option>
               </select>
             </div>
 

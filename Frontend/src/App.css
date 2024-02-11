@@ -294,3 +294,6 @@ font-size: 0.9rem;
     flex-direction: column;
     flex-wrap: wrap;
   }
+  .d-none{
+    display: none;
+  }
