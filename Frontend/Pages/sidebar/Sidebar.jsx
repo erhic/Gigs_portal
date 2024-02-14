@@ -2,6 +2,7 @@ import React from 'react'
 import JobType from './JobType'
 import Experience from './Experience'
 import Salary from './Salary'
+import Location from './Location'
 
 export default function Sidebar({ handleRadioSelection, value }) {
   return (<>
@@ -14,6 +15,8 @@ export default function Sidebar({ handleRadioSelection, value }) {
           <Experience handleRadioSelection={handleRadioSelection} />
 
           <Salary handleRadioSelection={handleRadioSelection} />
+
+          <Location handleRadioSelection={handleRadioSelection} />
         </div>
       </div></div>
   </>
