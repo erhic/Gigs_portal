@@ -5,7 +5,7 @@ export default function Banner({ query, handleSearchQuery }) {
   return (
     <div className='max-w-screen-2xl container mx-auto x1:px-24  px-4 md:py-20 py-14'>
 
-      <h1 className='text-5xl font-bold text-primary px-3 mb-3'>Find your <span className='text-secondary' >new gig</span><span> today</span></h1>
+      <h1 className='text-5xl font-bold text-black px-3 mb-3'>Unlock your <span className='text-[#4C67F5]' >Professional<br /> Potential</span> Today!</h1>
       <p className='text-lg text-primary mb-8 px-3'> Plenty of gigs in the software development and IT sector awaiting your . </p>
 
       {/*   banner form that we query to get results filtered */}
