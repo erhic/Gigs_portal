@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className='max-w-screen-2x1 container-fluid mx-auto x1:px-24 px-4 bg-light'>
+      <header className='max-w-screen-2x1 container-fluid mx-auto x1:px-24 px-4 bg-gray-100'>
         <nav className='flex justify-between items-center py-6 '>
 
           <p className='flex items-center gap-2 text-2x1 text-primary fw-bold fs-5'><span>Gigpark</span></p>

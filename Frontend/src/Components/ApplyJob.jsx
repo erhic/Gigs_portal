@@ -64,17 +64,37 @@ export default function ApplyJob() {
   }
 
   return (<>
-    <div className='container col-'>
+    <div className='container bg-gray-50 px-10 items-center'>
 
 
       <h3 className='text-center'> ApplyJob/</h3>
 
-      <section className='row py-4'>
+      <section className='row '>
 
         {/* job being applied full details */}
         {jobs.filter((jobids) => jobids._id === jobIds).map((item, index) => {
           return (
-            <div key={index} className='col-md-6 bg-light py-3 px-5'>
+            <div key={index} className=' '>
+              <div className='bg-blue-100  rounded  p-8 flex'>
+                <img src="https://placehold.jp/130x130.png" alt="" />
+                <div className='px-6'>
+                  <p className='text-3xl font-bold '>{item.jobTitle}</p>
+                  <p className='text-1xl text-gray-500 pt-1 '>{item.companyName}</p>
+                </div>
+              </div>
+
+              <div className='flex pt-9 '>
+                <div className='flex-col pr-10 bg-blue-100 justify'>
+                  <p>Job Overview</p>
+                  <p>Job Title:</p>
+                  <span>{item.jobTitle}</span>
+                </div>
+                <div className='flex-col p-2  justify-end'>
+                  <p>Job Description</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores accusamus consequatur architecto, voluptate soluta cupiditate alias sapiente? Aliquid veritatis sunt natus, unde rem et cum. Sequi ex magni ab suscipit.</p>
+                </div>
+
+              </div>
               <h3> Job: <span className='fw-bold'>{item.jobTitle}</span>
                 <span className='float-right'> Posted on:<span className=' fw-bold'> {item.postDate}</span></span> </h3>
               <p>  Company: <span className='fw-bold'>{item.companyName}</span>  <span className='float-right'>Deadline: <span className=' fw-bold'> In 14 Days</span></span> </p>
