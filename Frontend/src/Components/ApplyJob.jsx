@@ -65,11 +65,7 @@ export default function ApplyJob() {
 
   return (<>
     <div className='container bg-gray-50 px-10 items-center'>
-
-
-      <h3 className='text-center'> ApplyJob/</h3>
-
-      <section className='row '>
+      <section className='row pt-7'>
 
         {/* job being applied full details */}
         {jobs.filter((jobids) => jobids._id === jobIds).map((item, index) => {
@@ -83,70 +79,122 @@ export default function ApplyJob() {
                 </div>
               </div>
 
-              <div className='flex pt-9 '>
-                <div className='flex-col pr-10 bg-blue-100 justify'>
-                  <p>Job Overview</p>
-                  <p>Job Title:</p>
-                  <span>{item.jobTitle}</span>
-                </div>
-                <div className='flex-col p-2  justify-end'>
-                  <p>Job Description</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores accusamus consequatur architecto, voluptate soluta cupiditate alias sapiente? Aliquid veritatis sunt natus, unde rem et cum. Sequi ex magni ab suscipit.</p>
-                </div>
+              <div className='  md:grid pt-5 grid-cols-3 gap-2 '>
+                <div className=' bg-blue-100 justify p-4 rounded'>
+                  <p className='text-base font-semibold text-black text-center pb-1'> Job Overview <br /></p>
+                  <div className='py-2'>
+                    <p className='font-semibold text-gray-700 p-1'>Job : </p>
+                    <p className='text-base px-1 text-gray-600'>{item.jobTitle}</p>
+                  </div>
 
+                  <div className='py-2'>
+                    <p className='font-semibold text-gray-700 p-1'>Company : </p>
+                    <p className='text-base px-1 text-gray-600'>{item.companyName}</p>
+                  </div>
+                  <div className='py-2'>
+                    <p className='font-semibold text-gray-700 p-1'>Location : </p>
+                    <p className='text-base px-1 text-gray-600'>{item.jobLocation}</p>
+                  </div>
+                  <div className='py-2'>
+                    <p className='font-semibold text-gray-700 p-1'>Experience level : </p>
+                    <p className='text-base px-1 text-gray-600'>{item.experienceType}</p>
+                  </div>
+                  <div className='py-2'>
+                    <p className='font-semibold text-gray-700 p-1'>Job Type  : </p>
+                    <p className='text-base px-1 text-gray-600'>{item.employmentType}</p>
+                  </div>
+                  <div className='py-2'>
+                    <p className='font-semibold text-gray-700 p-1'>Salary  : </p>
+                    <p className='text-base px-1 text-gray-600'>{item.minimumSalary}-{item.maximumSalary}</p>
+                  </div>
+                  <div className='py-2'>
+                    <p className='font-semibold text-gray-700 p-1'>Date Posted  : </p>
+                    <p className='text-base px-1 text-gray-600'>{item.postDate}</p>
+                  </div>
+                  <div className='py-2'>
+                    <p className='font-semibold text-gray-700 p-1'>Deadline period: </p>
+                    <p className='text-base px-1 text-gray-600'>14 Days</p>
+                  </div>
+                </div>
+                <div className=' p-4 col-span-2 justify-end'>
+                  <p className='font-bold pb-4'>Job Description</p>
+                  <p>{item.companyName} is recruiting for a position of {item.jobTitle} , candidate must have a minimum of {item.experienceType} experince to work at they offices located in {item.jobLocation}.  </p>
+                  <p>* Qualified candidate are encouraged to apply .</p>
+                  <ul className='font-bold text-gray-600 pt-4 pb-3'>Role of the job entails: </ul>
+                  <p className='md:pb-9 sm:pb-7'>- {item.jobDescription}</p>
+
+
+                  {/*  form to make application for specified job  */}
+                  <div className='p-5  bg-gray-100'>
+
+
+                    <form onSubmit={handleSubmit} >
+
+
+
+                      <div class="border-b border-gray-900/10 pb-12">
+                        <h2 class="text-base font-semibold leading-7 text-gray-900">Apply Here</h2>
+
+
+                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                          <div class="sm:col-span-3">
+                            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                            <div class="mt-2">
+                              <input type="text" name='firstname' required onChange={handleChange} autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            </div>
+                          </div>
+
+                          <div class="sm:col-span-3">
+                            <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                            <div class="mt-2">
+                              <input type="text" name='lastname' required onChange={handleChange} autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            </div>
+                          </div>
+
+
+
+
+
+
+
+                          <div class="sm:col-span-2 sm:col-start-1">
+                            <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Phone</label>
+                            <div class="mt-2">
+                              <input type="number" name='phoneno' required onChange={handleChange} autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            </div>
+                          </div>
+
+                          <div class="sm:col-span-2">
+                            <label for="region" class="block text-sm font-medium leading-6 text-gray-900">CV Link</label>
+                            <div class="mt-2">
+                              <input type="text" value={applicationInfo.cvlink} name='cvlink' required onChange={handleChange} autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            </div>
+                          </div>
+
+                          <div class="sm:col-span-2">
+                            <label for="sociallink" class="block text-sm font-medium leading-6 text-gray-900">Social Link</label>
+                            <div class="mt-2">
+                              <input type="text" name='sociallink' required onChange={handleChange} autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            </div>
+                          </div>
+
+                        </div>   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-sm mt-4 px-3 rounded">
+                          Submit
+                        </button>
+
+                      </div>
+                    </form>
+
+
+
+                  </div>
+
+                </div>
               </div>
-              <h3> Job: <span className='fw-bold'>{item.jobTitle}</span>
-                <span className='float-right'> Posted on:<span className=' fw-bold'> {item.postDate}</span></span> </h3>
-              <p>  Company: <span className='fw-bold'>{item.companyName}</span>  <span className='float-right'>Deadline: <span className=' fw-bold'> In 14 Days</span></span> </p>
-              <p>  Location: <span className='fw-bold'>{item.jobLocation}</span></p>
-              <p className='py-3 fw-bold'>Job Description</p>
-              <p>{item.companyName} is recruiting for a position of {item.jobTitle} , candidate must have a minimum of {item.experienceType} experince to work at they offices located in {item.jobLocation}.  </p>
-              <p>* Qualified candidate are encouraged to apply .</p>
-              <ul className='fw-bold py-3'>Role of the job entails: </ul>
-              <p>- {item.jobDescription}</p>
-              <p className='py-3 mr-3'>Terms: <span className='fw-bold px-2 rounded-3 bg-gray-100 py-2 text-center'> {item.employmentType}</span></p>
             </div>
           )
         })
         }
-
-        {/*  form to make application for specified job  */}
-        <div className='col-md-5 mx-auto'>
-          <form onSubmit={handleSubmit} className='p-2'>
-            <div className=" mt-4 row ">
-              <div className="mb-3 col-md-5 ">
-                <label htmlFor='firstname' className="form-label">First Name</label>
-                <input type="text" name='firstname' required onChange={handleChange} className="form-control" />
-
-              </div>
-              <div className="mb-3 col-md-5 ">
-                <label className="form-label">Last Name</label>
-                <input type="text" name='lastname' required onChange={handleChange} className="form-control" />
-
-              </div>
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Phone Number</label>
-              <input type="number" name='phoneno' required onChange={handleChange} className="form-control" id="phonenumber" />
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">CV Link</label>
-              <input type="text" value={applicationInfo.cvlink} name='cvlink' required onChange={handleChange} className="form-control" id="cvlink" />
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Social Link</label>
-              <input type="text" name='sociallink' required onChange={handleChange} className="form-control" id="sociallink" />
-            </div>
-
-
-            <button type="submit" className='btn btn-primary bg-primary my-2' >Apply</button>
-          </form>
-        </div>
-
-
       </section>
 
     </div>
