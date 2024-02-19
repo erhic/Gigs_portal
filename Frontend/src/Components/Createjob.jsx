@@ -51,82 +51,94 @@ export default function Createjob() {
   }
   return (
     <>
-      <div className='row mx-auto'>
-        <h3 className='text-center mb-4'> Create job</h3>
-        <form className='col-md-9 mx-auto' onSubmit={handleSubmit}>
+      <div className=''>
+
+        <form className='p-9' onSubmit={handleSubmit}>
 
 
-          <div className="row">
-            <div className="mb-3 col-md-4">
-              <label className="form-label">Company Name</label>
-              <input type="text" required name='companyName' onChange={handleChange} className="form-control" />
-            </div>
-            <div className="mb-3 col-md-4">
-              <label className="form-label">Job Title</label>
-              <input type="text" required name='jobTitle' onChange={handleChange} className="form-control" />
-            </div>
-            <div className="mb-3 col-md-4">
-              <label className="form-label">Company Logo Link</label>
-              <input type="text" required name='companyLogo' onChange={handleChange} className="form-control" />
+
+          <div class="border-b border-gray-900/10 pb-12">
+            <h2 class="text-base font-semibold leading-7 text-gray-900">Create Job</h2>
+
+
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Company name</label>
+                <div class="mt-2">
+                  <input type="text" required name='companyName' onChange={handleChange} autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
+              <div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Job Title</label>
+                <div class="mt-2">
+                  <input type="text" name='jobTitle' required onChange={handleChange} autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
+              <div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Company Logo Link</label>
+                <div class="mt-2">
+                  <input type="text" name='companyLogo' required onChange={handleChange} autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
+              <div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Minimum Salary</label>
+                <div class="mt-2">
+                  <input type="number" required name='minimumSalary' onChange={handleChange}
+                    autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
+              <div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Maximum Salary</label>
+                <div class="mt-2">
+                  <input type="number" required name='minimumSalary' onChange={handleChange} autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
+              <div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Salary Type</label>
+                <div class="mt-2">
+                  <select required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ri
+                  ng-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 " name='salaryType' onChange={handleChange}>
+                    <option defaultValue=""></option>
+                    <option value="Daily">Daily</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Weekly">Weekly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Job Location</label>
+                <div class="mt-2">
+                  <input type="text" name='jobLocation' required onChange={handleChange} autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div><div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Experience Level</label>
+                <div class="mt-2">
+                  <input type="text" name='experienceType' required onChange={handleChange} autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
+              <div class="sm:col-span-3 px-4">
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Salary Type</label>
+                <div class="mt-2">
+                  <select required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ri
+                  ng-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 " name='employmentType' onChange={handleChange}>
+                    <option defaultValue=""></option>
+                    <option value="Parttime">Part Time</option>
+                    <option value="Fulltime">Full Time</option>
+                    <option value="Internship">Internship</option>
+                  </select>
+                </div>
+              </div>
+            </div></div>
+          <div class="sm:col-span-3 px-4">
+            <label className='block text-sm font-medium leading-6 text-gray-900' > Job Description</label>
+            <div className="form-floating mb-3">
+              <textarea className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ri
+                  ng-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 " required name='jobDescription' onChange={handleChange} placeholder="Leave a comment here" id="floatingTextarea2" ></textarea>
             </div>
           </div>
-
-
-
-
-
-          <div className="row">
-            <div className="mb-3 col-md-4">
-              <label className="form-label">Minumum Salary</label>
-              <input type="number" required name='minimumSalary' onChange={handleChange} className="form-control" />
-            </div>
-            <div className="mb-3 col-md-4">
-              <label className="form-label">Maximum Salary</label>
-              <input type="number" required name='maximumSalary' onChange={handleChange} className="form-control" />
-            </div>
-            <div className="mb-3 col-md-4">
-              <label className="form-label">Salary Type</label>
-              <select required className="form-select form-select-sm" name='salaryType' onChange={handleChange}>
-                <option defaultValue=""></option>
-                <option value="Daily">Daily</option>
-                <option value="Monthly">Monthly</option>
-                <option value="Weekly">Weekly</option>
-              </select>
-            </div>
-          </div>
-
-
-
-          <div className="row">
-            <div className="mb-3 col-md-4">
-              <label className="form-label">Job Location</label>
-              <input type="text" required name='jobLocation' onChange={handleChange} className="form-control" />
-            </div>
-
-            <div className="mb-3 col-md-4">
-              <label className="form-label">Experience Level</label>
-              <input type="number" required name='experienceType' onChange={handleChange} className="form-control" />
-            </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="employmenttype" className="form-label">Employment Type</label>
-              <select required name='employmentType' onChange={handleChange} className="form-select form-select-sm" >
-                <option defaultValue=""></option>
-                <option value="Parttime">Part Time</option>
-                <option value="Fulltime">Full Time</option>
-                <option value="Internship">Internship</option>
-              </select>
-            </div>
-
-          </div>
-
-
-
-
-          <label > Job Description</label><div className="form-floating mb-3">
-            <textarea className="form-control" required name='jobDescription' onChange={handleChange} placeholder="Leave a comment here" id="floatingTextarea2" ></textarea>
-
-          </div>
-          <button type="submit" className="btn btn-primary text-secondary">Submit</button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-sm mt-4 px-3 rounded ml-10">
+            Submit
+          </button>
         </form>
 
       </div>

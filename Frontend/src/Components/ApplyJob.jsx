@@ -84,39 +84,39 @@ export default function ApplyJob() {
                   <p className='text-base font-semibold text-black text-center pb-1'> Job Overview <br /></p>
                   <div className='py-2'>
                     <p className='font-semibold text-gray-700 p-1'>Job : </p>
-                    <p className='text-base px-1 text-gray-600'>{item.jobTitle}</p>
+                    <p className='leading-7 px-1 text-gray-600'>{item.jobTitle}</p>
                   </div>
 
                   <div className='py-2'>
                     <p className='font-semibold text-gray-700 p-1'>Company : </p>
-                    <p className='text-base px-1 text-gray-600'>{item.companyName}</p>
+                    <p className='leading-7 px-1 text-gray-600'>{item.companyName}</p>
                   </div>
                   <div className='py-2'>
                     <p className='font-semibold text-gray-700 p-1'>Location : </p>
-                    <p className='text-base px-1 text-gray-600'>{item.jobLocation}</p>
+                    <p className='leading-7 px-1 text-gray-600'>{item.jobLocation}</p>
                   </div>
                   <div className='py-2'>
                     <p className='font-semibold text-gray-700 p-1'>Experience level : </p>
-                    <p className='text-base px-1 text-gray-600'>{item.experienceType}</p>
+                    <p className='leading-7 px-1 text-gray-600'>{item.experienceType}</p>
                   </div>
                   <div className='py-2'>
                     <p className='font-semibold text-gray-700 p-1'>Job Type  : </p>
-                    <p className='text-base px-1 text-gray-600'>{item.employmentType}</p>
+                    <p className='leading-7 px-1 text-gray-600'>{item.employmentType}</p>
                   </div>
                   <div className='py-2'>
                     <p className='font-semibold text-gray-700 p-1'>Salary  : </p>
-                    <p className='text-base px-1 text-gray-600'>{item.minimumSalary}-{item.maximumSalary}</p>
+                    <p className='leading-7 px-1 text-gray-600'>{item.minimumSalary}-{item.maximumSalary}</p>
                   </div>
                   <div className='py-2'>
                     <p className='font-semibold text-gray-700 p-1'>Date Posted  : </p>
-                    <p className='text-base px-1 text-gray-600'>{item.postDate}</p>
+                    <p className='leading-7 px-1 text-gray-600'>{item.postDate}</p>
                   </div>
                   <div className='py-2'>
                     <p className='font-semibold text-gray-700 p-1'>Deadline period: </p>
-                    <p className='text-base px-1 text-gray-600'>14 Days</p>
+                    <p className='leading-7 px-1 text-gray-600'>14 Days</p>
                   </div>
                 </div>
-                <div className=' p-4 col-span-2 justify-end'>
+                <div className=' p-4 col-span-2 justify-end leading-7'>
                   <p className='font-bold pb-4'>Job Description</p>
                   <p>{item.companyName} is recruiting for a position of {item.jobTitle} , candidate must have a minimum of {item.experienceType} experince to work at they offices located in {item.jobLocation}.  </p>
                   <p>* Qualified candidate are encouraged to apply .</p>
