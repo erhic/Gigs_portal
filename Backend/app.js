@@ -99,7 +99,7 @@ app.get("/alljobs", async (req, res) => {
 });
 
 //endpoint to apply for jobs
-app.post("/applyjob", verifyToken, async (req, res) => {
+app.post("/applyjob", async (req, res) => {
   let applyData = req.body;
   try {
     let application = await applicationsModel.create(applyData);
@@ -123,7 +123,7 @@ app.get("/jobs/:jobid/:userid/", (req, res) => {
 });
 
 //endpoint to see applied jobs by recruiter
-app.get("/appliedjobs", verifyToken, async (req, res) => {
+app.get("/appliedjobs", async (req, res) => {
   try {
     let appliedJobs = await applicationsModel
       .find()
@@ -137,7 +137,7 @@ app.get("/appliedjobs", verifyToken, async (req, res) => {
 });
 
 //endpoint to give response to applicant by recruiter/ whether will proceed to next stage
-app.put("/appliedjobs/:id", verifyToken, (req, res) => {
+app.put("/appliedjobs/:id", (req, res) => {
   let applicantStatus = req.body;
   applicationsModel
     .updateOne({ _id: req.params.id }, applicantStatus)
