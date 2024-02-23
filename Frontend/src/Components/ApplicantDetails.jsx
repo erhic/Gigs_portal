@@ -68,8 +68,8 @@ export default function ApplicantDetails({ children }) {
           allApplicants.filter((a) => a._id === id.id).map((item) => {
 
             return (
-              <div key="i" className="row p-2 bg-light rounded-3">
-                <div className="col col-md-4 p-1 mx-auto">
+              <div key="i" className="grid grid-3 gap-3 p-2 bg-blue-100 rounded-3">
+                <div className="col col-md-4 p-1 mx-auto gr">
                   <p className='text-center fw-bold py-2'>Applicant Info</p>
                   <p className='p-1'>Name : <span className='px-2'>{item.firstname}</span></p>
                   <p className='p-1'>Email: <span className='px-2'>{item.userId.email}</span></p>
