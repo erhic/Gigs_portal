@@ -61,7 +61,7 @@ export default function Createjob() {
             <h2 class="text-base font-semibold leading-7 px-5 pt-5 text-gray-900">Create Job</h2>
 
 
-            <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 ">
+            <div class="mt-4 grid grid-cols-1 gap-x-9 gap-y-4 sm:grid-cols-6 ">
               <div class="sm:col-span-3 px-4">
                 <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Company name</label>
                 <div class="mt-2">
