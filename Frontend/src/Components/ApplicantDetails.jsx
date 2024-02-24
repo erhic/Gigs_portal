@@ -65,46 +65,46 @@ export default function ApplicantDetails({ children }) {
 
 
         {
-          allApplicants.filter((a) => a._id === id.id).map((item) => {
+          allApplicants.filter((a) => a._id === id.id).map((item, index) => {
 
             return (
-              <div key="i" className="grid grid-3 gap-3 p-2 bg-blue-100 rounded-3">
-                <div className="col col-md-4 p-1 mx-auto gr">
-                  <p className='text-center fw-bold py-2'>Applicant Info</p>
-                  <p className='p-1'>Name : <span className='px-2'>{item.firstname}</span></p>
-                  <p className='p-1'>Email: <span className='px-2'>{item.userId.email}</span></p>
-                  <p className='p-1'>Tel no: <span className='px-2'>xxxxxxx</span></p>
-                  <p className='p-1'>Status:
+              <div key="index" className="grid grid-cols-3 gap-2 p-8 bg-gray-50 rounded">
+                <div className=" p-3 sm:col-span-1 w-60  md:col-span-1 bg-gray-100  rounded  ">
+                  <p className='text-center font-semibold py-2'>Applicant Info</p>
+                  <p className='p-1'>Name : <span className='px-2 text-gray-600'>{item.firstname}</span></p>
+                  <p className='p-1'>Email: <span className='px-2 text-gray-600'>{item.userId.email}</span></p>
+                  <p className='p-1'>Tel no: <span className='px-2 text-gray-600'>xxxxxxx</span></p>
+                  <p className='p-1 text-gray-600'>Status:
                     <span
                       className={item.applicationStatus === 'success' ? successStyle : failStyle}>
-                      {item.applicationStatus}
+                      {' ' + item.applicationStatus}
                     </span>
                   </p>
 
                 </div>
 
-                <div className="col col-md-4 p-1 mx-auto">
-                  <p className='text-center fw-bold py-2'>Job Info</p>
-                  <p className='p-1'>Title : <span className='px-2'>{item.jobId.jobTitle}</span></p>
-                  <p className='p-1'>Company : <span className='px-2'></span>{item.jobId.companyName}</p>
-                  <p className='p-1'>Location : <span className='px-2'>{item.jobId.jobLocation}</span></p>
+                <div className="  sm:col-span-1 p-3  w-60  col-span-3  bg-gray-100  rounded">
+                  <p className='text-center fw-bold py-2 font-semibold'>Job Info</p>
+                  <p className='p-1'>Title : <span className='px-8 text-gray-600'>{item.jobId.jobTitle}</span></p>
+                  <p className='p-1'>Company : <span className='px-1 text-gray-600'>{item.jobId.companyName}</span></p>
+                  <p className='p-1'>Location : <span className='px-2 text-gray-600'>{item.jobId.jobLocation}</span></p>
                 </div>
 
 
-                <div className="col col-md-4 p-1 mx-auto">
-                  <p className='text-center fw-bold py-2'>Other Info</p>
-                  <p className='p-1'>Posted Date: <span className='px-2'>{item.jobId.postDate}</span></p>
-                  <p className='p-1'>Applied Date : <span className='px-2'>{item.applicationDate}</span></p>
-                  <p className='p-1'>CV  : <span className='px-2 text-primary'><a target="blank" href={item.userId.cvLink}>cvlink</a></span></p>
+                <div className=" sm:col-span-1 w-60 col-span-1 p-3  bg-gray-100  rounded">
+                  <p className='text-center font-semibold py-2'>Other Info</p>
+                  <p className='p-1'>Posted Date: <span className='px-4 text-gray-600'>{item.jobId.postDate}</span></p>
+                  <p className='p-1'>Applied Date : <span className='px-2 text-gray-600'>{item.applicationDate}</span></p>
+                  <p className='p-1'>CV  : <span className='px-2 text-blue-500 '><a target="blank" href={item.userId.cvLink} >cvlink</a></span></p>
                 </div>
-
               </div>
+
             )
           })
         }
-        <div className='mx-4 my-3'>
-          <div className="btn btn-sm px-3 btn-success " onClick={handleInvite}>Invite</div>
-          <div className="btn btn-sm  mx-3 btn-info" onClick={handleDisqualify}>Disqualify</div>
+        <div className='flex  justify-center pt-3'>
+          <div className="btn px-5 bg-green-400 rounded border-2 border-green-300 text-gray-900 " onClick={handleInvite}>Invite</div>
+          <div className="btn mx-3 bg-red-300 rounded px-2 " onClick={handleDisqualify}>Disqualify</div>
         </div>
 
       </div>

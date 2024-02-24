@@ -58,7 +58,7 @@ export default function Applicants() {
                           <td>
                             <Link to={`/applicantdetails/${item._id}`} >
                               <span className='bg-gray-100 border-2 border-blue-200  
-                              hover:border-blue-400 text-blue-600 px-3 py-1 rounded font-semibold' >    View </span></Link> </td>
+                              hover:bg-blue-600 hover:text-white text-blue-600 px-3 py-1 rounded font-semibold' >    View </span></Link> </td>
                           <td><span className={item.applicationStatus === 'success' ? successStyle : item.applicationStatus === 'disqualified' ? failStyle : pendingStyle}>{item.applicationStatus}</span></td>
 
                         </tr>
