@@ -20,9 +20,9 @@ export default function Navbar() {
     loggedData.setLoggedUser(null)
     navigate('/login')
   }
-  console.log(loggedData)
 
   return (
+
     <>
       <header className='max-w-screen-2x1 container-fluid mx-auto x1:px-24 px-4 bg-gray-100'>
         <nav className='flex justify-between items-center py-6 '>
@@ -31,8 +31,35 @@ export default function Navbar() {
           {/* large devices view */}
 
           <ul className='hidden md:flex gap-10'>
+            {
 
-            <li className='text-base text-primary'>
+
+              loggedData.loggedUser?.username.toLowerCase() === "admin" ?
+                (<ul className='hidden md:flex gap-10' ><li className='text-base text-primary'>
+                  <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
+                </li>
+                  <li>
+                    <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/createjobs">Create Jobs</NavLink>
+                  </li>
+                  <li>
+                    <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
+                  </li> </ul>) : loggedData.loggedUser !== null ?
+                  (<ul className='hidden md:flex gap-10'><li className='text-base text-primary'>
+                    <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
+                  </li>
+                    <li>
+                      <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/myapplications">My Applications</NavLink>
+                    </li>
+                  </ul>) :
+                  (<ul className='hidden md:flex gap-10'><li className='text-base text-primary'>
+                    <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
+                  </li>
+                    <li>
+                      <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/myapplications" onClick={() => { alert('Login to view your application') }}> Applications</NavLink>
+                    </li>
+                  </ul>)
+            }
+            {/* <li className='text-base text-primary'>
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
             </li>
 
@@ -42,10 +69,8 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
-            </li>
-            <li>
-              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/myapplications">My Applications</NavLink>
-            </li>
+            </li> */}
+
 
 
 
@@ -54,7 +79,7 @@ export default function Navbar() {
 
               loggedData.loggedUser == null ? <div className='text-base  font-medium space-x-5'>
                 <Link to="/login" className='py-2 px-4 border rounded'>Login</Link>
-                <Link to="/register" className='py-2 px-4 border rounded bg-secondary  text-white'>Register</Link>
+                <Link to="/register" className='py-2 px-4 border rounded bg-secondary  '>Register</Link>
 
               </div> :
                 <div className='flex'>
