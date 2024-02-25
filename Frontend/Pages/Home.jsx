@@ -33,7 +33,7 @@ const Home = () => {
   console.log(jobs)
 
   // filter data using title
-  const filteredJobsByTitle = jobs.filter((job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1)
+  const filteredJobsByTitle = jobs?.filter((job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1)
   console.log(filteredJobsByTitle)
 
   // filter data using radio buttons 
@@ -70,14 +70,13 @@ const Home = () => {
   const dataFiltered = (jobs, selected, query) => {
     //by default is expected to return all jobs as fetched from backend 
     let filteredJobs = jobs;
-
-    //checks if there is a query/inputs and execute this if code below
+    //checks if there is a query/inputs and execute this if code   below
     if (query) {
       filteredJobs = filteredJobsByTitle
     }
     // check the select option and return results based on selected option
     if (selected) {
-      filteredJobs = filteredJobs.filter(({ jobLocation, maxPrice, experienceLevel, salaryType, employmentType, postingDate }) => (
+      filteredJobs = filteredJobs?.filter(({ jobLocation, maxPrice, experienceLevel, salaryType, employmentType, postingDate }) => (
         jobLocation.toLowerCase() === selected.toLowerCase() ||
         parseInt(maxPrice) <= parseInt(selected) || //calculate salary amount is done here
         salaryType.toLowerCase() === selected.toLowerCase() ||

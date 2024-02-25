@@ -18,6 +18,7 @@
     "react-router-dom": "^6.21.2",
     "sort-by": "^1.2.0"
   },
+  "proxy": "https://gigs-portal-2.onrender.com",
   "devDependencies": {
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
