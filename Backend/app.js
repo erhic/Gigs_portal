@@ -10,7 +10,7 @@ const cors = require("cors");
 require("dotenv").config;
 // db connection
 mongoose
-  .connect("mongodb://localhost:27017/jobsportal")
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("DB Connect Successfully");
   })
@@ -51,16 +51,20 @@ app.post("/login", async (req, res) => {
     if (usr !== null) {
       bcrypt.compare(userCreditials.password, usr.password, (err, result) => {
         if (result == true) {
-          jwt.sign({ email: userCreditials.email }, "myapp", (err, token) => {
-            if (!err) {
-              res.send({
-                message: "Login successful",
-                token: token,
-                userid: usr._id,
-                username: usr.username,
-              });
+          jwt.sign(
+            { email: userCreditials.email },
+            process.env.SECRETKEYWORD,
+            (err, token) => {
+              if (!err) {
+                res.send({
+                  message: "Login successful",
+                  token: token,
+                  userid: usr._id,
+                  username: usr.username,
+                });
+              }
             }
-          });
+          );
         } else {
           res.status(403).send({ message: "Wrong password" });
         }
@@ -150,6 +154,6 @@ app.put("/appliedjobs/:id", (req, res) => {
     });
 });
 
-app.listen(3501, () => {
+app.listen(process.env.PORT, () => {
   console.log("Serve running");
 });
