@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { UserContext } from '../context/UserContext'
+import { baseUrl } from '../context'
 
 export default function MyApplication() {
   const [jobAplied, setJobApplied] = useState([])
   const user = useContext(UserContext)
   let usersid = user.loggedUser.userid
   useEffect(() => {
-    fetch('http://localhost:3501/appliedjobs')
+    fetch(`${baseUrl}/appliedjobs`)
       .then((res) => res.json())
       .then((applied_jobs) => {
         setJobApplied(applied_jobs)

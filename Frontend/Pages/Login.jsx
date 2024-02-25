@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { UserContext } from "../src/context/UserContext";
+import { baseUrl } from "../src/context";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault()
 
-    fetch("http://localhost:3501/login", {
+    fetch(`${baseUrl}/login`, {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: {

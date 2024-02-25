@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { baseUrl } from '../context/index.jsx'
 
 export default function ApplicantDetails({ children }) {
   //states
@@ -19,7 +20,7 @@ export default function ApplicantDetails({ children }) {
 
   //cycle hook
   useEffect(() => {
-    fetch('http://localhost:3501/appliedjobs')
+    fetch(`${baseUrlaseUrl}/appliedjobs`)
       .then(res => res.json())
       .then(data => setAllApplicants(data))
       .catch(err => console.log(err)
@@ -46,7 +47,7 @@ export default function ApplicantDetails({ children }) {
 
 
   useEffect(() => {
-    fetch(`http://localhost:3501/appliedjobs/${parId}`,
+    fetch(`${baseUrl}/appliedjobs/${parId}`,
       {
         method: 'PUT',
         body: JSON.stringify(invite),

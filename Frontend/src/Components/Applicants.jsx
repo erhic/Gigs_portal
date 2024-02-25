@@ -1,5 +1,6 @@
 import React, { useEffect, useState, createContext, useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../context';
 
 
 
@@ -13,7 +14,7 @@ export default function Applicants() {
 
 
   useEffect(() => {
-    fetch('http://localhost:3501/appliedjobs')
+    fetch(`${baseUrl}/appliedjob`)
       .then(res => res.json())
       .then((data) => {
         setApplicant(data)

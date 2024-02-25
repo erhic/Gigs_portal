@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
+import { baseUrl } from "../src/context";
 
 
 export default function Register() {
@@ -28,7 +29,7 @@ export default function Register() {
     event.preventDefault()
     console.log(userDetailis)
     //fetch api
-    fetch("http://localhost:3501/register", {
+    fetch(`${baseUrl}/register`, {
       method: "POST",
       body: JSON.stringify(userDetailis),
       headers: {

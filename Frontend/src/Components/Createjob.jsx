@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { baseUrl } from '../context'
 
 export default function Createjob() {
   const [jobInfo, setJobInfo] = useState({
@@ -23,7 +24,7 @@ export default function Createjob() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3501/createjobs', {
+    fetch(`${baseUrl}/createjobs`, {
       method: 'POST',
       body: JSON.stringify(jobInfo),
       headers: {

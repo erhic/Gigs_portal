@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Jobs from './Jobs'
 import { JobContext, UserContext } from '../context/UserContext'
 import { } from 'react'
+import { baseUrl } from '../context'
 
 export default function ApplyJob() {
   const id = useParams()
@@ -30,7 +31,7 @@ export default function ApplyJob() {
   //fetching data
   useEffect(() => {
     setIsLoading(true)
-    fetch('http://localhost:3501/alljobs').then(res => res.json()).then(data => setJobs(data), setIsLoading(false))
+    fetch(`${baseUrl}/alljobs`).then(res => res.json()).then(data => setJobs(data), setIsLoading(false))
   }, [])
 
   console.log(jobIdDes)
@@ -52,7 +53,7 @@ export default function ApplyJob() {
     console.log(typeof (loggedUserId))
     let allApplicationInfo = { ['jobId']: jobIds, ['userId']: loggedUserId, ...applicationInfo }
     console.log(allApplicationInfo)
-    fetch("http://localhost:3501/applyjob", {
+    fetch(`${baseUrl}/applyjob`, {
       method: "POST",
       body: JSON.stringify(allApplicationInfo),
       headers: {

@@ -3,6 +3,7 @@ import Sidebar from './sidebar/Sidebar'
 import Jobs from '../src/Components/Jobs'
 import Banner from '../src/Components/Banner'
 import Card from '../src/Components/Card'
+import { baseUrl } from '../src/context'
 
 
 
@@ -26,7 +27,7 @@ const Home = () => {
   //fetching data
   useEffect(() => {
     setIsLoading(true)
-    fetch('http://localhost:3501/alljobs').then(res => res.json()).then(data => setJobs(data), setIsLoading(false))
+    fetch(`${baseUrl}/alljobs`).then(res => res.json()).then(data => setJobs(data), setIsLoading(false))
   }, [])
 
   console.log(jobs)

@@ -59,21 +59,6 @@ export default function Navbar() {
                     </li>
                   </ul>)
             }
-            {/* <li className='text-base text-primary'>
-              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/">Home</NavLink>
-            </li>
-
-
-            <li>
-              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/createjobs">Create Jobs</NavLink>
-            </li>
-            <li>
-              <NavLink className={({ isActive }) => isActive ? "active" : ""} to="/applicants">Applicants</NavLink>
-            </li> */}
-
-
-
-
 
             {
 
