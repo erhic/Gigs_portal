@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { UserContext } from "../src/context/UserContext";
-import baseUrl from "../src/baseUrl";
+import { baseUrl } from "../src/baseUrl";
 
 
 export default function Login() {
