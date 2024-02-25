@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { baseUrl } from '../context'
+import { baseUrl } from '../baseUrl'
 
 export default function Createjob() {
   const [jobInfo, setJobInfo] = useState({

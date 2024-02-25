@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createContext, useContext } from 'react'
 import { Link } from 'react-router-dom';
-import { baseUrl } from '../context';
+import { baseUrl } from '../baseUrl'
 
 
 
