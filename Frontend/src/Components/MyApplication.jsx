@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { UserContext } from '../context/UserContext'
-import { baseUrl } from '../context'
+import { baseUrl } from '../baseUrl'
 
 export default function MyApplication() {
   const [jobAplied, setJobApplied] = useState([])
