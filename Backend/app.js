@@ -7,7 +7,7 @@ const jobsModel = require("./Models/jobsModels");
 const applicationsModel = require("./Models/applicationsModel");
 const verifyToken = require("./verifyToken");
 const cors = require("cors");
-require("dotenv").config;
+require("dotenv").config();
 // db connection
 mongoose
   .connect(process.env.MONGODB_URL)
