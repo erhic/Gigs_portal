@@ -3,7 +3,7 @@ import Sidebar from './sidebar/Sidebar'
 import Jobs from '../src/Components/Jobs'
 import Banner from '../src/Components/Banner'
 import Card from '../src/Components/Card'
-import { baseUrl } from '../src/context'
+import { baseUrl } from '../src/baseUrl'
 
 
 

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { baseUrl } from '../context/index.jsx'
+import { baseUrl } from '../baseUrl'
 
 export default function ApplicantDetails({ children }) {
   //states
@@ -20,7 +20,7 @@ export default function ApplicantDetails({ children }) {
 
   //cycle hook
   useEffect(() => {
-    fetch(`${baseUrlaseUrl}/appliedjobs`)
+    fetch(`${baseUrl}/appliedjobs`)
       .then(res => res.json())
       .then(data => setAllApplicants(data))
       .catch(err => console.log(err)

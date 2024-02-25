@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import Jobs from './Jobs'
 import { JobContext, UserContext } from '../context/UserContext'
 import { } from 'react'
-import { baseUrl } from '../context'
+import { baseUrl } from '../baseUrl'
 
 export default function ApplyJob() {
   const id = useParams()
