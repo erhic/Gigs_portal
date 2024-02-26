@@ -51,20 +51,16 @@ app.post("/login", async (req, res) => {
     if (usr !== null) {
       bcrypt.compare(userCreditials.password, usr.password, (err, result) => {
         if (result == true) {
-          jwt.sign(
-            { email: userCreditials.email },
-            process.env.SECRETKEYWORD,
-            (err, token) => {
-              if (!err) {
-                res.send({
-                  message: "Login successful",
-                  token: token,
-                  userid: usr._id,
-                  username: usr.username,
-                });
-              }
+          jwt.sign({ email: userCreditials.email }, "myapp", (err, token) => {
+            if (!err) {
+              res.send({
+                message: "Login successful",
+                token: token,
+                userid: usr._id,
+                username: usr.username,
+              });
             }
-          );
+          });
         } else {
           res.status(403).send({ message: "Wrong password" });
         }
@@ -79,7 +75,7 @@ app.post("/login", async (req, res) => {
 });
 
 //endpoint to post job
-app.post("/createjobs", verifyToken, async (req, res) => {
+app.post("/createjobs", async (req, res) => {
   let jobData = req.body;
   try {
     let jobs = await jobsModel.create(jobData);
