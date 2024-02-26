@@ -72,8 +72,8 @@ export default function ApplyJob() {
         {jobs.filter((jobids) => jobids._id === jobIds).map((item, index) => {
           return (
             <div key={index} className=' '>
-              <div className='bg-blue-100  rounded  p-8 flex'>
-                <img src="https://placehold.jp/130x130.png" alt="" />
+              <div className='bg-blue-100  rounded  p-8 flex bgurlpath ' style={{ backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_VZQ7YDyK8ExmLk3vQ4hUjGdzt7Tqk3K-HQ&usqp=CAU)` }}>
+                <img src={item.companyLogo} className="w-40 rounded opacity-80" alt="" />
                 <div className='px-6'>
                   <p className='text-3xl font-bold '>{item.jobTitle}</p>
                   <p className='text-1xl text-gray-500 pt-1 '>{item.companyName}</p>
@@ -119,7 +119,7 @@ export default function ApplyJob() {
                 </div>
                 <div className=' p-4 col-span-2 justify-end leading-7'>
                   <p className='font-bold pb-4'>Job Description</p>
-                  <p>{item.companyName} is recruiting for a position of {item.jobTitle} , candidate must have a minimum of {item.experienceType} experince to work at they offices located in {item.jobLocation}.  </p>
+                  <p>{item.companyName} is recruiting for a position of {item.jobTitle} , candidate must have a minimum of {item.experienceType} year experince , to work at they offices located in {item.jobLocation}.  </p>
                   <p>* Qualified candidate are encouraged to apply .</p>
                   <ul className='font-bold text-gray-600 pt-4 pb-3'>Role of the job entails: </ul>
                   <p className='md:pb-9 sm:pb-7'>- {item.jobDescription}</p>

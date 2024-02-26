@@ -84,14 +84,14 @@ export default function Createjob() {
               <div className="sm:col-span-3 px-4">
                 <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">Minimum Salary</label>
                 <div className="mt-2">
-                  <input type="number" required name='minimumSalary' onChange={handleChange}
+                  <input type="number" min={0} required name='minimumSalary' onChange={handleChange}
                     autoComplete="given-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                 </div>
               </div>
               <div className="sm:col-span-3 px-4">
                 <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">Maximum Salary</label>
                 <div className="mt-2">
-                  <input type="number" required name='minimumSalary' onChange={handleChange} autoComplete="given-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                  <input type="number" min={0} required name='minimumSalary' onChange={handleChange} autoComplete="given-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                 </div>
               </div>
               <div className="sm:col-span-3 px-4">
@@ -114,11 +114,11 @@ export default function Createjob() {
               </div><div className="sm:col-span-3 px-4">
                 <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">Experience Level</label>
                 <div className="mt-2">
-                  <input type="text" name='experienceType' required onChange={handleChange} autoComplete="given-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                  <input type="number" min={0} name='experienceType' required onChange={handleChange} autoComplete="given-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                 </div>
               </div>
               <div className="sm:col-span-3 px-4">
-                <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">Salary Type</label>
+                <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">Job Type</label>
                 <div className="mt-2">
                   <select required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ri
                   ng-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 " name='employmentType' onChange={handleChange}>

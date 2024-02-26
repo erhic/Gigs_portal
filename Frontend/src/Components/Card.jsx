@@ -12,7 +12,7 @@ const Card = ({ data, onCardClick }) => {
 
     <div className='flex justify-end'>
 
-      <div className='w-40 rounded-xl overflow-hidden m-2 bg-gray-100'>
+      <div className='w-40 rounded-xl overflow-hidden m-2 bg-gray-100 border-2'>
         <div className='relative'>
           <img className="h-20 bg-blue-300 object-cover" src={data.companyLogo}></img><span className=' absolute bottom-4 px-11 text-white'>{data.companyName}</span>
         </div>
