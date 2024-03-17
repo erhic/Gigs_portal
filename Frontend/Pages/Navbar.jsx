@@ -107,8 +107,8 @@ export default function Navbar() {
 
 
 
-            <li className='text-white py-1'><Link to="/login">Login</Link></li>
-            <li className='text-white py-1'><Link to="/register">Register</Link></li>
+            <li className='text-gray-400 py-1'><Link to="/login">Login</Link></li>
+            <li className='text-gray-400 py-1'><Link to="/register">Register</Link></li>
 
           </ul>
         </div>
